@@ -1780,6 +1780,14 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 
 /* primary color hook end*/
 
+/* responsive class for images */
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+/* end responsive class for images */
 
 .rss{display:none;}
 
