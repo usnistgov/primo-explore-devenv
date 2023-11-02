@@ -286,8 +286,9 @@
   .request-form md-input-container .md-input-container-dummy > .md-select-dummy .prm-hue2.md-select-value.md-select-placeholder,
   .request-form md-input-container md-select .prm-hue2._md-select-value._md-select-placeholder,
   .request-form md-input-container .md-input-container-dummy > .md-select-dummy .prm-hue2._md-select-value._md-select-placeholder, .result-item-actions .md-icon-button, .result-item-actions .prm-hue2.more-options-button, prm-add-query-to-saved-searches .prm-hue2.custom-button, prm-pre-filters md-input-container.prm-hue2.is-active, .md-autocomplete-suggestions .prm-hue2.suggestion-scope, md-tab-content .tab-content-header md-input-container md-select-value .prm-hue2.md-text, prm-resource-type-filter-bar md-input-container.prm-hue2.is-active {
-    color: #4a86b6; }
-
+    color: #4a86b6;
+  }
+ 
 .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-atoz-search-bar, prm-browse-search-bar, prm-tags-search-bar, prm-newspapers-search-bar, prm-collection-gallery-header .collection-header-inner, prm-tree-nav prm-spinner .diamond {
   color: white;
   background-color: #5C92BD; }
@@ -1790,6 +1791,15 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 /* end responsive class for images */
 
 .rss{display:none;}
+
+
+/* hide the c.uresolver.request.pickupLocation.noCampus and personal_delivery labels in the hold request form */
+
+.md-container-ignore {
+  display: none; 
+}
+
+/* hide the c.uresolver.request.pickupLocation.noCampus and personal_delivery labels in the hold request form end */
 
 /* LOCAL Alert BANNER 
 body::before 
