@@ -1793,14 +1793,6 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 .rss{display:none;}
 
 
-/* hide the c.uresolver.request.pickupLocation.noCampus and personal_delivery labels in the hold request form */
-
-.md-container-ignore {
-  display: none; 
-}
-
-/* hide the c.uresolver.request.pickupLocation.noCampus and personal_delivery labels in the hold request form end */
-
 /* LOCAL Alert BANNER 
 body::before 
 {
