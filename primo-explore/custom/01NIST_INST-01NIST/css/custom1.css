@@ -1792,6 +1792,18 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 
 .rss{display:none;}
 
+/* report a problem style */
+
+#report-problem {
+  text-align: center;
+  border-top: 1px solid rgba(195, 195, 195, .5);
+  border-bottom: 1px solid rgba(195, 195, 195, .5);
+  padding: 20px 0;
+  margin: 20px 0;
+  position: relative;
+  }
+
+
 
 /* LOCAL Alert BANNER 
 body::before 
