@@ -26,6 +26,8 @@ The development package allows you to configure the following page components (f
 
 - [Images](https://github.com/ExLibrisGroup/primo-explore-package/tree/master/VIEW_CODE/img "images documentation")
 
+*make sure to follow the file naming and [src path details on Ex Libris' documentation](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/030Primo_VE_User_Interface/010Primo_VE_Customization_-_Best_Practices#Image_File_Customization)* e.g., `<img src="/discovery/custom/01NIST_INST-01NIST/img/warning.png">`
+
 - [JavaScript](https://github.com/ExLibrisGroup/primo-explore-package/tree/master/VIEW_CODE/js "javascript documentation")
 
 For each configuration-type, or for every different Primo View, there should be a specified folder named after the View (which adheres to the established directory structure) in the `primo-explore/custom` package folder.
