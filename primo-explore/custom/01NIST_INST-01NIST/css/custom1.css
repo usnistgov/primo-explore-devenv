@@ -1805,10 +1805,10 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 
 
 
-/* LOCAL Alert BANNER 
+/* LOCAL Alert BANNER
 body::before 
 {
-    content: "ALERT!!! [insert text here].";
+    content: "Sign in now uses the new OKTA authentication method";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1816,5 +1816,15 @@ body::before
     font-weight: bold;
     font-size: large;
 
+} */
+
+prm-search-bar-after {
+display: inline-block;
+background: #FFFF00;
+width: 100%;
+font-weight: bold;
+font-size: large;
+padding: 5px 0;
+margin: 5px 0;
 }
     /* END local banner */

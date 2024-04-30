@@ -37,6 +37,20 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
     });
                 /*----------Servicenow item level help link ends here-----------*/
 
+                /*----------Alert After Search Bar BEGIN-----------*/
+    app.component('myInstitutionComponent', {
+        template: `<span style="margin-left: 40%;">Signing in now uses the new <a href="https://nist.servicenowservices.com/self_service/?id=kb_article&sys_id=b1bfddcc1b1c4a1034df5396624bcbdd" target="_blank">OKTA authentication method</a></span>`
+    });
+
+    app.component('prmSearchBarAfter', {
+        bindings: {parentCtrl: `<`},
+        template: `<my-institution-component></my-institution-component>`
+});
+
+                /*----------Alert After Search Bar END-----------*/
+
+
+
 
 
 })();
