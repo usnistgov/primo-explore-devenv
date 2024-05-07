@@ -1803,8 +1803,6 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   position: relative;
   }
 
-
-
 /* LOCAL Alert BANNER 
 body::before 
 {
@@ -1818,3 +1816,23 @@ body::before
 
 }
     /* END local banner */
+
+/* Collection Discovery Author + Date */
+prm-gallery-item-after {
+  padding: 20px 15px;
+  display: block;
+  margin-top: -30px;
+  }
+
+  prm-gallery-item-after div {
+  margin-bottom: -40px;
+  margin-top: -20px;
+  }
+
+  .is-grid-view prm-gallery-item .collection-element {
+  padding: 15px;
+  }
+
+  prm-gallery-item .collection-element .item-title {
+  padding-bottom: 30px;
+  }
