@@ -37,6 +37,31 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
     });
                 /*----------Servicenow item level help link ends here-----------*/
 
-
+    app.component('prmGalleryItemAfter', {
+        bindings: {
+        parentCtrl: '<'
+        },
+        controller: function () {
+        var $ctrl = this;
+        $ctrl.$onInit = function () {
+        try {
+        $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
+        } catch (e) {
+        $ctrl.author = '';
+        }
+        try {
+        $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
+        } catch (e) {
+        $ctrl.date = '';
+        }
+        $ctrl.hasDate = !!$ctrl.date;
+        $ctrl.hasAuthor = !!$ctrl.author;
+        };
+        },
+        template: `
+        <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
+        <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
+        `,
+        });
 
 })();
