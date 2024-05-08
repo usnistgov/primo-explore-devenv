@@ -1802,43 +1802,17 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   margin: 20px 0;
   position: relative;
   }
+          /* Fetch Item - Citation Linker Hide certain fields BEGIN */
 
-/**Hide "search inside" for journals **/
-prm-search-within-journal {
-  display: none;
-  }
-
-.search-within-p-only {
-  display:none; 
-  }
-
-#searchWithinJournal {
-  display: none;
-  }
-
-[aria-label="Search inside"] {
-  display: none;
-  }
-
-/* removes first four input fields */
-.request-form-group:nth-child(-n + 4) md-input-container:nth-child(-n + 4) {
+/* removes radio 1 - books */
+#radio_1 {
   display: none;
 }
-
-/* removes last two input fields */
-.request-form-group:nth-last-child(-n + 2) md-input-container:nth-last-child(-n + 2) {
+/* removes radio 2 - journal */
+#radio_2 {
   display: none;
 }
-
-/* removes input but leaves border box*/
-/* .request-form-group-item prm-form-field div[id="form_field_"] input[id="input_11"] {
-  display: none;
-}
-
-/* removes label text only
-md-input-container label[translate="citationLinker.atitle"] {
-  display: none;
-} */
+          /* Fetch Item - Citation Linker Hide certain fields END */
 
 /* LOCAL Alert BANNER 
 body::before 
