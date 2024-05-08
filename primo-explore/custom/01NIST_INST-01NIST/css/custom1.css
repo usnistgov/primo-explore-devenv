@@ -1812,6 +1812,16 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
 #radio_2 {
   display: none;
 }
+
+/* removes first four input fields */
+.request-form-group:nth-child(-n + 4) md-input-container:nth-child(-n + 4) {
+  display: none;
+}
+
+/* removes last two input fields */
+.request-form-group:nth-last-child(-n + 2) md-input-container:nth-last-child(-n + 2) {
+  display: none;
+}
           /* Fetch Item - Citation Linker Hide certain fields END */
 
 /* LOCAL Alert BANNER 
