@@ -1812,6 +1812,21 @@ md-radio-button[value="book"] {
 md-radio-button[value="journal"] {
   display:none;
 }
+
+/* removes first four input fields */
+prm-citation-linker .request-form-group:nth-child(-n + 4) md-input-container:nth-child(-n + 4) {
+  display: none;
+}
+
+/* removes last two input fields */
+prm-citation-linker .request-form-group:nth-last-child(-n + 2) md-input-container:nth-last-child(-n + 2) {
+  display: none;
+}
+
+/* removes issn field from form */
+div.request-form-group-item:has([translate="citationLinker.issn"]) {
+  display:none;
+}
           /* Fetch Item - Citation Linker Hide certain fields END */
 
 /* LOCAL Alert BANNER 
