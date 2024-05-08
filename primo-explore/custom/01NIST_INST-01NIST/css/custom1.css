@@ -1805,22 +1805,12 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
           /* Fetch Item - Citation Linker Hide certain fields BEGIN */
 
 /* removes radio 1 - books */
-#radio_1 {
-  display: none;
+md-radio-button[value="book"] {
+  display:none;
 }
 /* removes radio 2 - journal */
-#radio_2 {
-  display: none;
-}
-
-/* removes first four input fields */
-.request-form-group:nth-child(-n + 4) md-input-container:nth-child(-n + 4) {
-  display: none;
-}
-
-/* removes last two input fields */
-.request-form-group:nth-last-child(-n + 2) md-input-container:nth-last-child(-n + 2) {
-  display: none;
+md-radio-button[value="journal"] {
+  display:none;
 }
           /* Fetch Item - Citation Linker Hide certain fields END */
 
