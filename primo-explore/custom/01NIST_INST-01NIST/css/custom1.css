@@ -1804,8 +1804,7 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   }
 
 
-
-/* LOCAL Alert BANNER
+/* LOCAL Alert BANNER 
 body::before 
 {
     content: "Sign in now uses the new OKTA authentication method";
@@ -1827,4 +1826,24 @@ font-size: large;
 padding: 5px 0;
 margin: 5px 0;
 }
-    /* END local banner */
+/* END local banner */
+
+/* Collection Discovery Author + Date */
+prm-gallery-item-after {
+  padding: 20px 15px;
+  display: block;
+  margin-top: -30px;
+  }
+
+  prm-gallery-item-after div {
+  margin-bottom: -40px;
+  margin-top: -20px;
+  }
+
+  .is-grid-view prm-gallery-item .collection-element {
+  padding: 15px;
+  }
+
+  prm-gallery-item .collection-element .item-title {
+  padding-bottom: 30px;
+  }
