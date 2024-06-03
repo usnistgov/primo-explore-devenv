@@ -1,7 +1,5 @@
-primo-explore/custom/
 primo-explore/tmp/
 
-!primo-explore/custom/.gitignore
 !primo-explore/tmp/.gitignore
 
 .idea/
