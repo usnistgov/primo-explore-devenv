@@ -1804,20 +1804,9 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   }
 
 /**Hide "search inside" for journals **/
-prm-search-within-journal {
-  display: none;
-  }
 
 .search-within-p-only {
   display:none; 
-  }
-
-#searchWithinJournal {
-  display: none;
-  }
-
-[aria-label="Search inside"] {
-  display: none;
   }
 
 /* LOCAL Alert BANNER 
