@@ -1802,7 +1802,8 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   margin: 20px 0;
   position: relative;
   }
-          /* Fetch Item - Citation Linker Hide certain fields BEGIN */
+
+/* Fetch Item - Citation Linker Hide certain fields BEGIN */
 
 /* removes radio 1 - books */
 md-radio-button[value="book"] {
@@ -1827,12 +1828,18 @@ prm-citation-linker .request-form-group:nth-last-child(-n + 2) md-input-containe
 div.request-form-group-item:has([translate="citationLinker.issn"]) {
   display:none;
 }
-          /* Fetch Item - Citation Linker Hide certain fields END */
+/* Fetch Item - Citation Linker Hide certain fields END */
+
+/**Hide "search inside" for journals **/
+
+.search-within-p-only {
+  display:none; 
+  }
 
 /* LOCAL Alert BANNER 
 body::before 
 {
-    content: "ALERT!!! [insert text here].";
+    content: "Sign in now uses the new OKTA authentication method";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1840,5 +1847,35 @@ body::before
     font-weight: bold;
     font-size: large;
 
+} */
+
+prm-search-bar-after {
+display: inline-block;
+background: #FFFF00;
+width: 100%;
+font-weight: bold;
+font-size: large;
+padding: 5px 0;
+margin: 5px 0;
 }
-    /* END local banner */
+/* END local banner */
+
+/* Collection Discovery Author + Date */
+prm-gallery-item-after {
+  padding: 20px 15px;
+  display: block;
+  margin-top: -30px;
+  }
+
+  prm-gallery-item-after div {
+  margin-bottom: -40px;
+  margin-top: -20px;
+  }
+
+  .is-grid-view prm-gallery-item .collection-element {
+  padding: 15px;
+  }
+
+  prm-gallery-item .collection-element .item-title {
+  padding-bottom: 30px;
+  }
