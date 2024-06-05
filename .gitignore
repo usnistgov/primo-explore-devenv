@@ -1,5 +1,6 @@
 primo-explore/custom/
 primo-explore/tmp/
+packages/
 
 !primo-explore/custom/.gitignore
 !primo-explore/tmp/.gitignore

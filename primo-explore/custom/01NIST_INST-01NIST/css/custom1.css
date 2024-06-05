@@ -1853,7 +1853,7 @@ prm-search-bar-after {
 display: inline-block;
 background: #FFFF00;
 width: 100%;
-font-weight: bold;
+font-weight: normal;
 font-size: large;
 padding: 5px 0;
 margin: 5px 0;
