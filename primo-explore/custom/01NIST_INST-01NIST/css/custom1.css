@@ -1804,6 +1804,12 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   }
 
 
+/**Hide "search inside" for journals **/
+
+.search-within-p-only {
+  display:none; 
+  }
+
 /* LOCAL Alert BANNER 
 body::before 
 {
