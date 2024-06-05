@@ -7,3 +7,5 @@ packages/
 
 .idea/
 package-lock.json
+packages/01NIST_INST-01NIST.zip
+/testing
