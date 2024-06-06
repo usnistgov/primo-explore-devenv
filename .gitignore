@@ -1,11 +1,7 @@
-primo-explore/custom/
 primo-explore/tmp/
 packages/
-
-!primo-explore/custom/.gitignore
-!primo-explore/tmp/.gitignore
+testing/
 
 .idea/
 package-lock.json
-packages/01NIST_INST-01NIST.zip
-/testing
+
