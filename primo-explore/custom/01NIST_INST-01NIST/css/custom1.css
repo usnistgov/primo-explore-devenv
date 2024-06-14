@@ -1879,3 +1879,7 @@ prm-gallery-item-after {
   prm-gallery-item .collection-element .item-title {
   padding-bottom: 30px;
   }
+
+  #mainResults > div.margin-bottom-medium > prm-no-search-result > md-card {
+    display: none;
+  }
