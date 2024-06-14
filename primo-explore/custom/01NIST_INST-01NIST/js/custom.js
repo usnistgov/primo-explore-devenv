@@ -79,4 +79,10 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
         `,
         });
 
+app.component('prmAuthoritySearchAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmAuthoritySearchAfterController',
+    template: '<div id="authority-search" layout="row" layout-align="center center"><h2>NIST Research Library & Museum is not using this feature yet</h2></div>'
+});
+
 })();
