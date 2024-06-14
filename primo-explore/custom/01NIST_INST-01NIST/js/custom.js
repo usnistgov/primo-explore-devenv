@@ -123,6 +123,7 @@ app.component('prmNoSearchResultAfter', {
         <li><a href="https://mathscinet.ams.org/mathscinet/publications-search?query={{$ctrl.getSearchTerm()}}&page=1&size=20&sort=newest&facets=" target="_blank">MathSciNet</a></li>\
         <li><a href="https://app.knovel.com/kn/search?include_synonyms=off&page=0&query={{$ctrl.getSearchTerm()}}" target="_blank">Knovel</a></li>\
         <li><a href="https://nist.primo.exlibrisgroup.com/discovery/search?query=any,contains,{{$ctrl.getSearchTerm()}}&tab=Everything&search_scope=MyInst_and_CI&vid=01NIST_INST:01NIST&offset=0&pcAvailability=true" target="_blank">Expanded Results</a></li>\
+        <li><a href="https://inet.nist.gov/library/references?s={{$ctrl.getSearchTerm()}}&k=&a=&type=All&y=All&items_per_page=10" target="_blank">CHIPS Lit</a></li>\
       </ul>\
       <p><span translate="" class="bold-text ng-scope">Need more help?</span></p>\
       <ul>\
