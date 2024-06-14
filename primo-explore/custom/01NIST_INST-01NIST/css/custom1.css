@@ -1879,14 +1879,3 @@ prm-gallery-item-after {
   prm-gallery-item .collection-element .item-title {
   padding-bottom: 30px;
   }
-
-  /* Authority Search Message Style */
-  #authority-search {
-    font: bold;
-    text-align: center;
-    border-top: 1px solid rgba(195, 195, 195, .5);
-    border-bottom: 1px solid rgba(195, 195, 195, .5);
-    padding: 20px 0;
-    margin: 20px 0;
-    position: relative;
-    }
