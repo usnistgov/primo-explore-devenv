@@ -79,4 +79,57 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
         `,
         });
 
+// No Results Page Changes
+
+app.controller('prmNoSearchResultAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {
+        vm.getSearchTerm = getSearchTerm;
+        function getSearchTerm() {
+          return vm.parentCtrl.term;
+        }
+      }
+    };
+}]);
+
+app.component('prmNoSearchResultAfter', {
+  bindings: { parentCtrl: '<' },
+  controller: 'prmNoSearchResultAfterController',
+  template: '<md-card class="default-card zero-margin _md md-primoExplore-theme">\
+    <md-card-title>\
+      <md-card-title-text>\
+        <span translate="" class="md-headline ng-scope">No records found.</span>\
+      </md-card-title-text>\
+    </md-card-title>\
+    <md-card-content>\
+      <p><span>There are no results matching your search: <i>{{$ctrl.getSearchTerm()}}</i>. </span></p>\
+      <p><span translate="" class="bold-text ng-scope">Common troubleshooting:</span></p>\
+      <ul>\
+        <li translate="" class="ng-scope">Make sure that all words are spelled correctly, and no abbreviations are used</li>\
+        <li translate="" class="ng-scope">Sign in to ensure access to all materials.</li>\
+        <li translate="" class="ng-scope">Try different keywords, more general keywords, or fewer keywords.</li>\
+        <li>If you are searching for a NIST Technical Series Publication, <a href="https://nist.primo.exlibrisgroup.com/discovery/search?query=any,contains,{{$ctrl.getSearchTerm()}}&tab=NISTTS&search_scope=NISTTechPubs&vid=01NIST_INST:01NIST&lang=en&offset=0">try the search profile</a>.</li>\
+        <li translate="" class="ng-scope">If your original search was filtered, try clearing your filters to improve your results.</li>\
+        </ul>\
+      <p><span translate="" class="bold-text ng-scope">Try the search in . . .</span></p>\
+      <ul>\
+        <li><a href="https://scholar.google.com/scholar?q={{$ctrl.getSearchTerm()}}" target="_blank">Google Scholar</a></li>\
+        <li><a href="https://www.worldcat.org/search?qt=worldcat_org_all&q={{$ctrl.getSearchTerm()}}" target="_blank">Worldcat</a></li>\
+        <li><a href="https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={{$ctrl.getSearchTerm()}}" target="_blank">IEEE</a></li>\
+        <li><a href="https://www.sciencedirect.com/search?qs={{$ctrl.getSearchTerm()}}" target="_blank">ScienceDirect</a></li>\
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term={{$ctrl.getSearchTerm()}}" target="_blank">PubMed</a></li>\
+        <li><a href="https://mathscinet.ams.org/mathscinet/publications-search?query={{$ctrl.getSearchTerm()}}&page=1&size=20&sort=newest&facets=" target="_blank">MathSciNet</a></li>\
+        <li><a href="https://app.knovel.com/kn/search?include_synonyms=off&page=0&query={{$ctrl.getSearchTerm()}}" target="_blank">Knovel</a></li>\
+        <li><a href="https://nist.primo.exlibrisgroup.com/discovery/search?query=any,contains,{{$ctrl.getSearchTerm()}}&tab=Everything&search_scope=MyInst_and_CI&vid=01NIST_INST:01NIST&offset=0&pcAvailability=true" target="_blank">Expanded Results</a></li>\
+      </ul>\
+      <p><span translate="" class="bold-text ng-scope">Need more help?</span></p>\
+      <ul>\
+        <li>Email the NIST Library at <a href="mailto:library@nist.gov">library@nist.gov</a>.</li>\
+      </ul>\
+    </md-card-content>\
+  </md-card>'
+});
+
 })();
