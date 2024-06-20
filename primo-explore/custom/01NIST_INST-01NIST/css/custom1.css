@@ -1882,7 +1882,7 @@ prm-gallery-item-after {
 
   /* Authority Search Message Style */
   #authority-search {
-    font: bold;
+    font-size: 22px;
     text-align: center;
     border-top: 1px solid rgba(195, 195, 195, .5);
     border-bottom: 1px solid rgba(195, 195, 195, .5);
