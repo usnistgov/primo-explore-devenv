@@ -81,192 +81,137 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
 
 // External search links
 app.controller("externalLinkController", [function ($stateParams, $state) {
-  this.$onInit = function () {
-    {
-      var spaceToPlus = function spaceToPlus(str) {
-        return str.replace(/\s+/g, "+");
-      };
-
-      /*
-      var convertToEbsco = function convertToEbsco(primoSearch) {
-        var ebscoSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          ebscoSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            switch (primoSearch[i].split(/,/)[0]) {
-              case "title":
-                ebscoSearchString += "TI+(" + searchTerms + ")";
-                break;
-              case "creator":
-                ebscoSearchString += "AU+(" + searchTerms + ")";
-                break;
-              case "sub":
-                ebscoSearchString += "SU+(" + searchTerms + ")";
-                break;
-              default:
-                // handles 'any' case
-                ebscoSearchString += "(" + searchTerms + ")";
-            }
-            if (i !== primoSearch.length - 1) {
-              ebscoSearchString += "+" + conjunction + "+";
-            }
-          }
-        }
-        return ebscoSearchString;
-      };
-      */
-
-      var convertToWorldCat = function convertToWorldCat(primoSearch) {
-        var worldCatSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          worldCatSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            switch (primoSearch[i].split(/,/)[0]) {
-              case "title":
-                worldCatSearchString += "ti:" + searchTerms;
-                break;
-              case "creator":
-                worldCatSearchString += "au:" + searchTerms;
-                break;
-              default:
-                worldCatSearchString += "kw:" + searchTerms;
-            }
-            if (i !== primoSearch.length - 1) {
-              worldCatSearchString += "+";
+    this.$onInit = function () {
+      {
+        var spaceToPlus = function spaceToPlus(str) {
+          return str.replace(/\s+/g, "+");
+        };
+  
+        var convertToChips = function convertToChips(primoSearch) {
+          var chipsSearchString = "";
+          if (!Array.isArray(primoSearch)) {
+            chipsSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
+          } else {
+            for (var i = 0; i < primoSearch.length; i++) {
+              var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
+              var conjunction = primoSearch[i].split(/,/)[3] || "";
+              switch (primoSearch[i].split(/,/)[0]) {
+                case "title":
+                  chipsSearchString += "TI+(" + searchTerms + ")";
+                  break;
+                case "creator":
+                  chipsSearchString += "AU+(" + searchTerms + ")";
+                  break;
+                case "sub":
+                  chipsSearchString += "SU+(" + searchTerms + ")";
+                  break;
+                default:
+                  // handles 'any' case
+                  chipsSearchString += "(" + searchTerms + ")";
+              }
+              if (i !== primoSearch.length - 1) {
+                chipsSearchString += "+" + conjunction + "+";
+              }
             }
           }
-        }
-        return worldCatSearchString;
-      };
-
-      var convertToGoogle = function convertToGoogle(primoSearch) {
-        var googleSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          googleSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            googleSearchString += "(" + searchTerms + ")";
-            if (i !== primoSearch.length - 1) {
-              googleSearchString += "+" + conjunction + "+";
+          return chipsSearchString;
+        };
+  
+        var convertToWorldCat = function convertToWorldCat(primoSearch) {
+          var worldCatSearchString = "";
+          if (!Array.isArray(primoSearch)) {
+            worldCatSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
+          } else {
+            for (var i = 0; i < primoSearch.length; i++) {
+              var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
+              var conjunction = primoSearch[i].split(/,/)[3] || "";
+              switch (primoSearch[i].split(/,/)[0]) {
+                case "title":
+                  worldCatSearchString += "ti:" + searchTerms;
+                  break;
+                case "creator":
+                  worldCatSearchString += "au:" + searchTerms;
+                  break;
+                default:
+                  worldCatSearchString += "kw:" + searchTerms;
+              }
+              if (i !== primoSearch.length - 1) {
+                worldCatSearchString += "+";
+              }
             }
           }
-        }
-        return googleSearchString;
-      };
-
-      var convertToResearchGuides = function convertToResearchGuides(primoSearch) {
-        var researchGuidesSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          researchGuidesSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            researchGuidesSearchString += "(" + searchTerms + ")";
-            if (i !== primoSearch.length - 1) {
-              researchGuidesSearchString += "+" + conjunction + "+";
+          return worldCatSearchString;
+        };
+  
+        var convertToGoogle = function convertToGoogle(primoSearch) {
+          var googleSearchString = "";
+          if (!Array.isArray(primoSearch)) {
+            googleSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
+          } else {
+            for (var i = 0; i < primoSearch.length; i++) {
+              var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
+              var conjunction = primoSearch[i].split(/,/)[3] || "";
+              googleSearchString += "(" + searchTerms + ")";
+              if (i !== primoSearch.length - 1) {
+                googleSearchString += "+" + conjunction + "+";
+              }
             }
           }
-        }
-        return researchGuidesSearchString;
-      };
-
-      var convertToUBIR = function convertToUBIR(primoSearch) {
-        var UBIRSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          UBIRSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            UBIRSearchString += "(" + searchTerms + ")";
-            if (i !== primoSearch.length - 1) {
-              UBIRSearchString += "+" + conjunction + "+";
-            }
-          }
-        }
-        return UBIRSearchString;
-      };
-
-      var convertToChipsLit = function convertToChipsLit(primoSearch) {
-        var digitalCollectionsSearchString = "";
-        if (!Array.isArray(primoSearch)) {
-          digitalCollectionsSearchString = spaceToPlus(primoSearch.split(/,/)[2]);
-        } else {
-          for (var i = 0; i < primoSearch.length; i++) {
-            var searchTerms = spaceToPlus(primoSearch[i].split(/,/)[2]);
-            var conjunction = primoSearch[i].split(/,/)[3] || "";
-            digitalCollectionsSearchString += "(" + searchTerms + ")";
-            if (i !== primoSearch.length - 1) {
-            digitalCollectionsSearchString += "+" + conjunction + "+";
-            }
-          }
-        }
-        return digitalCollectionsSearchString;
-      };
-
-      // function convertToNewspaper(primoSearch) {
-      //   let newspaperSearchString = '';
-      //   if (!Array.isArray(primoSearch)) {
-      //     newspaperSearchString = spaceToPlus(primoSearch);
-      //   } else {
-      //     for (let i=0; i<primoSearch.length; i++) {
-      //       let bit = primoSearch[i].replace(/contains/g, '');
-      //       newspaperSearchString += spaceToPlus(bit) + ',';
-      //     }
-      //   }
-      //   return newspaperSearchString;
-      // }
-
-      // get the view for image paths
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      this.view = urlParams.get("vid").replace(":", "-");
-
-      var primoSearch = this.parentCtrl.$stateParams.query; // can be a string OR array!
-
-      //var proxyString = "/login?url=";
-
-      var ebscoSearchString = convertToEbsco(primoSearch);
-      var googleSearchString = convertToGoogle(primoSearch);
-      var worldCatSearchString = convertToWorldCat(primoSearch);
-      // const npSearchString = convertToNewspaper(primoSearch);
-      var UBIRSearchString = convertToUBIR (primoSearch);
-      var chipsLitSearchString = convertToChipsLit (primoSearch);	  
-     
-
-      // this.newspaperLabel = 'Newspapers';
-      // const newspaperBase = 'https://ithaca.primo.exlibrisgroup.com/discovery/npsearch?vid=01ITHACACOL_INST:01ITHACACOL_V1&lang=en&search_scope=MyInst_and_CI';
-      // this.newspaperSearchUrl = newspaperBase + '&query=' + npSearchString;
-
-      this.ebscoLabel = "EBSCO";
-      var ebscoBaseUrl = "https://search.ebscohost.com/login.aspx?direct=true&defaultdb=aph,gnh,apn,ahl,aft,air,ami,rfh,bvh,bxh,boh,buh,cin20,cms,nlebk,eric,hev,8gh,hch,hia,ibh,qth,lxh,lfh,ulh,cmedm,mth,mah,msn,nfh,ofs,phl,tfh,rgr,bwh,ram,rft,sih,s3h,trh,ser,e870sww,e872sww,mft,kah,mzh&type=1&searchMode=Standard&site=ehost-live&scope=site";
-      var ebscoSearchUrl = ebscoBaseUrl + "&bquery=" + ebscoSearchString;
-      this.ebscoProxiedSearchUrl = proxyString + ebscoSearchUrl;
-
-      this.googleLabel = "Google Scholar";
-      var googleBaseUrl = "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&inst=7210957415625843320&q=";
-      this.googleProxiedSearchUrl = googleBaseUrl + googleSearchString;
-
-      this.worldCatLabel = "WorldCat";
-      var worldCatBaseUrl = "https://www.worldcat.org/search?qt=worldcat_org_all&q=";
-      this.worldCatProxiedSearchUrl = proxyString + worldCatBaseUrl + worldCatSearchString;
-    }
-  };
-}]);
-app.component("prmSearchResultSortByAfter", {
-  bindings: { parentCtrl: "<" },
-  controller: "externalLinkController",
-  template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In&hellip;</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.ebscoProxiedSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg" alt=""> {{$ctrl.ebscoLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleProxiedSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg" alt=""> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatProxiedSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg" alt=""> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
-});
+          return googleSearchString;
+        };
+  
+        // function convertToNewspaper(primoSearch) {
+        //   let newspaperSearchString = '';
+        //   if (!Array.isArray(primoSearch)) {
+        //     newspaperSearchString = spaceToPlus(primoSearch);
+        //   } else {
+        //     for (let i=0; i<primoSearch.length; i++) {
+        //       let bit = primoSearch[i].replace(/contains/g, '');
+        //       newspaperSearchString += spaceToPlus(bit) + ',';
+        //     }
+        //   }
+        //   return newspaperSearchString;
+        // }
+  
+        // get the view for image paths
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        this.view = urlParams.get("vid").replace(":", "-");
+  
+        var primoSearch = this.parentCtrl.$stateParams.query; // can be a string OR array!
+  
+        //var proxyString = "login?url=";
+  
+        var chipsSearchString = convertToChips(primoSearch);
+        var googleSearchString = convertToGoogle(primoSearch);
+        var worldCatSearchString = convertToWorldCat(primoSearch);
+        // const npSearchString = convertToNewspaper(primoSearch);
+  
+        // this.newspaperLabel = 'Newspapers';
+        // const newspaperBase = 'https://ithaca.primo.exlibrisgroup.com/discovery/npsearch?vid=01ITHACACOL_INST:01ITHACACOL_V1&lang=en&search_scope=MyInst_and_CI';
+        // this.newspaperSearchUrl = newspaperBase + '&query=' + npSearchString;
+  
+        this.chipsLabel = "CHIPS Lit";
+        var chipsBaseUrl = "https://inet.nist.gov/library/references?s=";
+        var chipsSuffixUrl = "&k=&a=&type=All&y=All&items_per_page=10"
+        var chipsSearchUrl = chipsBaseUrl + chipsSearchString + chipsSuffixUrl;
+        this.chipsSearchUrl = chipsSearchUrl;
+  
+        this.googleLabel = "Google Scholar";
+        var googleBaseUrl = "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&inst=7210957415625843320&q=";
+        this.googleProxiedSearchUrl = googleBaseUrl + googleSearchString;
+  
+        this.worldCatLabel = "WorldCat";
+        var worldCatBaseUrl = "https://www.worldcat.org/search?qt=worldcat_org_all&q=";
+        this.worldCatProxiedSearchUrl =  + worldCatBaseUrl + worldCatSearchString;
+      }
+    };
+  }]);
+  app.component("prmSearchResultSortByAfter", {
+    bindings: { parentCtrl: "<" },
+    controller: "externalLinkController",
+    template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In&hellip;</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.chipsSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg" alt=""> {{$ctrl.chipsLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleProxiedSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg" alt=""> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatProxiedSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg" alt=""> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
+  });
 
 
 /* Try my search list of links to include */
