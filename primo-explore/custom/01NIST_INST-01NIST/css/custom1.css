@@ -1890,3 +1890,8 @@ prm-gallery-item-after {
     margin: 20px 0;
     position: relative;
     }
+
+    /* Hides database search dbcategories.option1 and dbcategories.option3 <li> */
+md-card.default-card._md.md-primoExplore-theme > md-card-content {
+  display:none;
+}
