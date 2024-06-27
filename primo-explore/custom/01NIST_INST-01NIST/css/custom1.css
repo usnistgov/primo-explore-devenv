@@ -1847,4 +1847,5 @@ prm-gallery-item-after {
     --width-param: 700px;
     max-width: var(--width-param);
     margin: 0 auto;
+    line-height: normal;
  }
