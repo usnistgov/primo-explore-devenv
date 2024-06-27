@@ -1885,7 +1885,3 @@ prm-gallery-item-after {
 prm-collection-gallery-header > div.collection-header-inner.has-transparent-topbar.layout-column.has-backdrop-image {
   background-size: contain;
 }
-
-prm-gallery-collection > a.collection-folder.md-primoExplore-theme.layout-column > div.collection-images.layout-wrap.layout-row.flex > div {
-  background-size: contain;
-}
