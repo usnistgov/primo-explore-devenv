@@ -1881,7 +1881,7 @@ prm-gallery-item-after {
   }
 
 /* Links to External Services */
-prm-search-result-sort-by md-input-container {
+/* prm-search-result-sort-by md-input-container {
   display: block;
 }
 
@@ -1920,12 +1920,12 @@ h3.section-title-header > button > span {
 #ic-ebsco-link svg, #ic-google-link svg, #ic-worldcat-link svg, #ic-newspaper-link svg {
   height: 16px;
   width: 16px;
-}
+} */
 
 /*          BEGIN EXTERNAL SEARCH        */
   
 /* Links to External Services created by Ithaca College*/
-/* prm-search-result-sort-by md-input-container {
+ prm-search-result-sort-by md-input-container {
 	display: block;
 }
 .section-title-header > span[title='Sort'] {
@@ -1941,6 +1941,7 @@ h3.section-title-header > button > span {
 	position: relative;
 	padding-left: 15px;
 	padding-bottom: 15px;
+  padding-right: 5px;
 	z-index: 10;
 }
 #ic-external-links h3 {
@@ -1972,7 +1973,7 @@ h3.section-title-header > button > span {
 @media (min-width:1600px){
 	#ic-external-links {
 		position:fixed;
-		top: 440px;
+		top: 300px;
 		right:75px;
 	}
 	#ic-external-links h3 {
@@ -1982,5 +1983,5 @@ h3.section-title-header > button > span {
 		left: -20px;
 		font-weight: 600;
 	}
-} */
+} 
 /*        END EXTERNAL SEARCH        */
