@@ -13,23 +13,23 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
 
        app.controller('prmActionContainerAfterController', [function () {
         var vm = this;
-        
+
         this.$onInit = function(){
             {
-    
+
         vm.getPermalink = getPermalink;
-    
+
         function getPermalink() {
             var permalink = encodeURIComponent(window.location.href);
-    
+
             var formField = 'https://nist.servicenowservices.com/library?id=sc_cat_item&sys_id=529edfea1b795410348d9605bc4bcb66&referring_url=';
             formField += permalink;
            return formField;
         }
             }
-        };				
+        };
     }]);
-    
+
     app.component('prmActionContainerAfter', {
         bindings: { parentCtrl: '<' },
         controller: 'prmActionContainerAfterController',
@@ -86,7 +86,7 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
         var spaceToPlus = function spaceToPlus(str) {
           return str.replace(/\s+/g, "+");
         };
-  
+
         var convertToChips = function convertToChips(primoSearch) {
           var chipsSearchString = "";
           if (!Array.isArray(primoSearch)) {
@@ -116,7 +116,7 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
           }
           return chipsSearchString;
         };
-  
+
         var convertToWorldCat = function convertToWorldCat(primoSearch) {
           var worldCatSearchString = "";
           if (!Array.isArray(primoSearch)) {
@@ -142,7 +142,7 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
           }
           return worldCatSearchString;
         };
-  
+
         var convertToGoogle = function convertToGoogle(primoSearch) {
           var googleSearchString = "";
           if (!Array.isArray(primoSearch)) {
@@ -159,7 +159,7 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
           }
           return googleSearchString;
         };
-  
+
         // function convertToNewspaper(primoSearch) {
         //   let newspaperSearchString = '';
         //   if (!Array.isArray(primoSearch)) {
@@ -172,35 +172,35 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
         //   }
         //   return newspaperSearchString;
         // }
-  
+
         // get the view for image paths
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
         this.view = urlParams.get("vid").replace(":", "-");
-  
+
         var primoSearch = this.parentCtrl.$stateParams.query; // can be a string OR array!
-  
+
         //var proxyString = "login?url=";
-  
+
         var chipsSearchString = convertToChips(primoSearch);
         var googleSearchString = convertToGoogle(primoSearch);
         var worldCatSearchString = convertToWorldCat(primoSearch);
         // const npSearchString = convertToNewspaper(primoSearch);
-  
+
         // this.newspaperLabel = 'Newspapers';
         // const newspaperBase = 'https://ithaca.primo.exlibrisgroup.com/discovery/npsearch?vid=01ITHACACOL_INST:01ITHACACOL_V1&lang=en&search_scope=MyInst_and_CI';
         // this.newspaperSearchUrl = newspaperBase + '&query=' + npSearchString;
-  
+
         this.chipsLabel = "CHIPS Lit";
         var chipsBaseUrl = "https://inet.nist.gov/library/references?s=";
         var chipsSuffixUrl = "&k=&a=&type=All&y=All&items_per_page=10"
         var chipsSearchUrl = chipsBaseUrl + chipsSearchString + chipsSuffixUrl;
         this.chipsSearchUrl = chipsSearchUrl;
-  
+
         this.googleLabel = "Google Scholar";
         var googleBaseUrl = "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&inst=7210957415625843320&q=";
         this.googleSearchUrl = googleBaseUrl + googleSearchString;
-  
+
         this.worldCatLabel = "WorldCat";
         var worldCatBaseUrl = "https://www.worldcat.org/search?qt=worldcat_org_all&q=";
         this.worldCatSearchUrl =  worldCatBaseUrl + worldCatSearchString;
@@ -210,12 +210,12 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
   app.component("prmSearchResultSortByAfter", {
     bindings: { parentCtrl: "<" },
     controller: "externalLinkController",
-    template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In&hellip;</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.chipsSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg" alt=""> {{$ctrl.chipsLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg" alt=""> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg" alt=""> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
+    template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.chipsSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg" alt=""> {{$ctrl.chipsLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg" alt=""> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg" alt=""> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
   });
 
 
 /* Try my search list of links to include */
-/* 
+/*
 <li><a href="https://scholar.google.com/scholar?q={{$ctrl.getSearchTerm()}}" target="_blank">Google Scholar</a></li>\
 <li><a href="https://www.worldcat.org/search?qt=worldcat_org_all&q={{$ctrl.getSearchTerm()}}" target="_blank">Worldcat</a></li>\
 <li><a href="https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={{$ctrl.getSearchTerm()}}" target="_blank">IEEE</a></li>\

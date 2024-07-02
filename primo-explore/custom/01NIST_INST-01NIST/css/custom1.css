@@ -288,7 +288,7 @@
   .request-form md-input-container .md-input-container-dummy > .md-select-dummy .prm-hue2._md-select-value._md-select-placeholder, .result-item-actions .md-icon-button, .result-item-actions .prm-hue2.more-options-button, prm-add-query-to-saved-searches .prm-hue2.custom-button, prm-pre-filters md-input-container.prm-hue2.is-active, .md-autocomplete-suggestions .prm-hue2.suggestion-scope, md-tab-content .tab-content-header md-input-container md-select-value .prm-hue2.md-text, prm-resource-type-filter-bar md-input-container.prm-hue2.is-active {
     color: #4a86b6;
   }
- 
+
 .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-atoz-search-bar, prm-browse-search-bar, prm-tags-search-bar, prm-newspapers-search-bar, prm-collection-gallery-header .collection-header-inner, prm-tree-nav prm-spinner .diamond {
   color: white;
   background-color: #5C92BD; }
@@ -1833,11 +1833,11 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
 /**Hide "search inside" for journals **/
 
 .search-within-p-only {
-  display:none; 
+  display:none;
   }
 
-/* LOCAL Alert BANNER 
-body::before 
+/* LOCAL Alert BANNER
+body::before
 {
     content: "Sign in now uses the new OKTA authentication method";
     display: inline-block;
@@ -1881,7 +1881,7 @@ prm-gallery-item-after {
   }
 
 /* Links to External Services */
-prm-search-result-sort-by md-input-container {
+/* prm-search-result-sort-by md-input-container {
   display: block;
 }
 
@@ -1920,12 +1920,12 @@ h3.section-title-header > button > span {
 #ic-ebsco-link svg, #ic-google-link svg, #ic-worldcat-link svg, #ic-newspaper-link svg {
   height: 16px;
   width: 16px;
-}
+} */
 
 /*          BEGIN EXTERNAL SEARCH        */
-  
+
 /* Links to External Services created by Ithaca College*/
- /* prm-search-result-sort-by md-input-container {
+prm-search-result-sort-by md-input-container {
 	display: block;
 }
 .section-title-header > span[title='Sort'] {
@@ -1983,5 +1983,5 @@ h3.section-title-header > button > span {
 		left: -20px;
 		font-weight: 600;
 	}
-} */
+}
 /*        END EXTERNAL SEARCH        */
