@@ -79,4 +79,11 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
         `,
         });
 
+/* Display message on authority search page */
+app.component('prmAuthoritySearchAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmAuthoritySearchAfterController',
+    template: '<div id="authority-search" layout="row" layout-align="center center">The NIST Library & Museum is not using this feature. Please try your search in <a href="https://nist.primo.exlibrisgroup.com/discovery/search?vid=01NIST_INST:01NIST">NIST Library Search</a></div>'
+});
+
 })();

@@ -1880,6 +1880,22 @@ prm-gallery-item-after {
   padding-bottom: 30px;
   }
 
+/* Authority Search Message Style */
+#authority-search {
+  font-size: 22px;
+  text-align: center;
+  border-top: 1px solid rgba(195, 195, 195, .5);
+  border-bottom: 1px solid rgba(195, 195, 195, .5);
+  padding: 20px 0;
+  margin: 20px 0;
+  position: relative;
+    }
+
+/* Hides database search dbcategories.option1 and dbcategories.option3 <li> */
+md-card.default-card._md.md-primoExplore-theme > md-card-content {
+  display:none;
+}
+
 /* style collection discovery banner and collection logo */
 
 /* prm-collection-gallery-header > div.collection-header-inner.has-transparent-topbar.layout-column.has-backdrop-image {
