@@ -1963,7 +1963,7 @@ h3.section-title-header > button > span {
 	#ic-external-links {
 		position:fixed;
 		top: 300px;
-		right:0;
+		right:150px;
 		scale:95%;
 		max-width: 200px;
 		text-wrap: wrap;
@@ -1974,7 +1974,7 @@ h3.section-title-header > button > span {
 	#ic-external-links {
 		position:fixed;
 		top: 300px;
-		right:75px;
+		right:150px;
 	}
 	#ic-external-links h3 {
 		color: #3a3a3a;
