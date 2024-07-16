@@ -13,23 +13,23 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
 
        app.controller('prmActionContainerAfterController', [function () {
         var vm = this;
-        
+
         this.$onInit = function(){
             {
-    
+
         vm.getPermalink = getPermalink;
-    
+
         function getPermalink() {
             var permalink = encodeURIComponent(window.location.href);
-    
+
             var formField = 'https://nist.servicenowservices.com/library?id=sc_cat_item&sys_id=529edfea1b795410348d9605bc4bcb66&referring_url=';
             formField += permalink;
            return formField;
         }
             }
-        };				
+        };
     }]);
-    
+
     app.component('prmActionContainerAfter', {
         bindings: { parentCtrl: '<' },
         controller: 'prmActionContainerAfterController',
@@ -85,5 +85,22 @@ app.component('prmAuthoritySearchAfter', {
     controller: 'prmAuthoritySearchAfterController',
     template: '<div id="authority-search" layout="row" layout-align="center center">The NIST Library & Museum is not using this feature. Please try your search in <a href="https://nist.primo.exlibrisgroup.com/discovery/search?vid=01NIST_INST:01NIST">NIST Library Search</a></div>'
 });
+
+//START - Google Analytics
+
+var googleAnalyticsUrl = document.createElement('script');
+googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
+googleAnalyticsUrl.type = 'text/javascript';
+googleAnalyticsUrl.async = true;
+document.head.appendChild(googleAnalyticsUrl);
+
+var googleAnalyticsCode = document.createElement('script');
+googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4KM704R98T');`;
+document.head.appendChild(googleAnalyticsCode);
+
+//END - Google Analytics
 
 })();
