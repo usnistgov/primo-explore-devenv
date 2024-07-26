@@ -1944,7 +1944,8 @@ h3.section-title-header > button > span {
 }
 /*        END EXTERNAL SEARCH        */
 
-  #mainResults > div.margin-bottom-medium > prm-no-search-result > md-card {
+/* hide old no results found card */
+#mainResults > div.margin-bottom-medium > prm-no-search-result > md-card {
     display: none;
   }
 
