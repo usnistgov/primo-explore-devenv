@@ -39,14 +39,14 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
                 /*----------Servicenow item level help link ends here-----------*/
 
                 /*----------Alert After Search Bar BEGIN-----------*/
-    app.component('myInstitutionComponent', {
+/*     app.component('myInstitutionComponent', {
         template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
     });
 
     app.component('prmSearchBarAfter', {
         bindings: {parentCtrl: `<`},
         template: `<my-institution-component></my-institution-component>`
-});
+}); */
 
                 /*----------Alert After Search Bar END-----------*/
 

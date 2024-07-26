@@ -1849,7 +1849,7 @@ body::before
 
 } */
 
-prm-search-bar-after {
+/* prm-search-bar-after {
 display: inline-block;
 background: #FFFF00;
 width: 100%;
@@ -1857,7 +1857,7 @@ font-weight: normal;
 font-size: large;
 padding: 5px 0;
 margin: 5px 0;
-}
+} */
 /* END local banner */
 
 /* Collection Discovery Author + Date */
