@@ -254,6 +254,7 @@ app.component('prmNoSearchResultAfter', {
         <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term={{$ctrl.getSearchTerm()}}" target="_blank">PubMed</a></li>\
         <li><a href="https://mathscinet.ams.org/mathscinet/publications-search?query={{$ctrl.getSearchTerm()}}&page=1&size=20&sort=newest&facets=" target="_blank">MathSciNet</a></li>\
         <li><a href="https://app.knovel.com/kn/search?include_synonyms=off&page=0&query={{$ctrl.getSearchTerm()}}" target="_blank">Knovel</a></li>\
+        <li><a href="https://inet.nist.gov/mr/library/research-tools" target="_blank">Other NIST Research Tools</a></li>\
       </ul>\
       <p><span translate="" class="bold-text ng-scope">Need more help?</span></p>\
       <ul>\
