@@ -1880,6 +1880,7 @@ prm-gallery-item-after {
   padding-bottom: 30px;
   }
 
+
 /* Links to External Services */
 /* prm-search-result-sort-by md-input-container {
   display: block;
@@ -1985,3 +1986,8 @@ h3.section-title-header > button > span {
 	}
 }
 /*        END EXTERNAL SEARCH        */
+
+  #mainResults > div.margin-bottom-medium > prm-no-search-result > md-card {
+    display: none;
+  }
+
