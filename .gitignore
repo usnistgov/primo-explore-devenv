@@ -1,6 +1,10 @@
 primo-explore/tmp/
+packages/
+testing/
+=======
 
 !primo-explore/tmp/.gitignore
 
 .idea/
 package-lock.json
+

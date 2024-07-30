@@ -288,7 +288,7 @@
   .request-form md-input-container .md-input-container-dummy > .md-select-dummy .prm-hue2._md-select-value._md-select-placeholder, .result-item-actions .md-icon-button, .result-item-actions .prm-hue2.more-options-button, prm-add-query-to-saved-searches .prm-hue2.custom-button, prm-pre-filters md-input-container.prm-hue2.is-active, .md-autocomplete-suggestions .prm-hue2.suggestion-scope, md-tab-content .tab-content-header md-input-container md-select-value .prm-hue2.md-text, prm-resource-type-filter-bar md-input-container.prm-hue2.is-active {
     color: #4a86b6;
   }
- 
+
 .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-atoz-search-bar, prm-browse-search-bar, prm-tags-search-bar, prm-newspapers-search-bar, prm-collection-gallery-header .collection-header-inner, prm-tree-nav prm-spinner .diamond {
   color: white;
   background-color: #5C92BD; }
@@ -1803,10 +1803,43 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   position: relative;
   }
 
-/* LOCAL Alert BANNER 
-body::before 
+/* Fetch Item - Citation Linker Hide certain fields BEGIN */
+
+/* removes radio 1 - books */
+md-radio-button[value="book"] {
+  display:none;
+}
+/* removes radio 2 - journal */
+md-radio-button[value="journal"] {
+  display:none;
+}
+
+/* removes first four input fields */
+prm-citation-linker .request-form-group:nth-child(-n + 4) md-input-container:nth-child(-n + 4) {
+  display: none;
+}
+
+/* removes last two input fields */
+prm-citation-linker .request-form-group:nth-last-child(-n + 2) md-input-container:nth-last-child(-n + 2) {
+  display: none;
+}
+
+/* removes issn field from form */
+div.request-form-group-item:has([translate="citationLinker.issn"]) {
+  display:none;
+}
+/* Fetch Item - Citation Linker Hide certain fields END */
+
+/**Hide "search inside" for journals **/
+
+.search-within-p-only {
+  display:none;
+  }
+
+/* LOCAL Alert BANNER
+body::before
 {
-    content: "ALERT!!! [insert text here].";
+    content: "Sign in now uses the new OKTA authentication method";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1814,8 +1847,18 @@ body::before
     font-weight: bold;
     font-size: large;
 
-}
-    /* END local banner */
+} */
+
+/* prm-search-bar-after {
+display: inline-block;
+background: #FFFF00;
+width: 100%;
+font-weight: normal;
+font-size: large;
+padding: 5px 0;
+margin: 5px 0;
+} */
+/* END local banner */
 
 /* Collection Discovery Author + Date */
 prm-gallery-item-after {
@@ -1836,3 +1879,73 @@ prm-gallery-item-after {
   prm-gallery-item .collection-element .item-title {
   padding-bottom: 30px;
   }
+
+/*          BEGIN EXTERNAL SEARCH        */
+
+/* Links to External Services created by Ithaca College*/
+prm-search-result-sort-by md-input-container {
+	display: block;
+}
+.section-title-header > span[title='Sort'] {
+	position: relative;
+}
+h3.section-title-header {
+	font-size: 1.05rem;
+}
+h3.section-title-header > button > span {
+	font-size: 1.05rem !important;
+}
+#ic-external-links {
+	position: relative;
+	padding-left: 15px;
+	padding-bottom: 15px;
+  padding-right: 5px;
+	z-index: 10;
+}
+#ic-external-links h3 {
+	color: #3a3a3a;
+	font-size: 1.05rem;
+	padding-bottom: 10px;
+	position: relative;
+	font-weight: 600;
+}
+#ic-external-links .external-search-link {
+	color: #0071BC;
+}
+#ic-external-links .external-search-link svg {
+	height: 16px;
+	width: 16px;
+}
+
+@media (min-width:1300px) and (max-width:1599px){
+	#ic-external-links {
+		position:fixed;
+		top: 300px;
+		right:150px;
+		scale:95%;
+		max-width: 200px;
+		text-wrap: wrap;
+	}
+}
+
+@media (min-width:1600px){
+	#ic-external-links {
+		position:fixed;
+		top: 300px;
+		right:150px;
+	}
+	#ic-external-links h3 {
+		color: #3a3a3a;
+		font-size: 1.05rem;
+		position: relative;
+		left: -20px;
+		font-weight: 600;
+	}
+}
+/*        END EXTERNAL SEARCH        */
+
+/* hide old no results found card */
+#mainResults > div.margin-bottom-medium > prm-no-search-result > md-card {
+    display: none;
+  }
+
