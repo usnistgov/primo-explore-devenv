@@ -1899,7 +1899,6 @@ h3.section-title-header > button > span {
 	position: relative;
 	padding-left: 15px;
 	padding-bottom: 15px;
-  padding-right: 5px;
 	z-index: 10;
 }
 #ic-external-links h3 {
@@ -1920,8 +1919,8 @@ h3.section-title-header > button > span {
 @media (min-width:1300px) and (max-width:1599px){
 	#ic-external-links {
 		position:fixed;
-		top: 300px;
-		right:150px;
+		top: 400px;
+		right:10px;
 		scale:95%;
 		max-width: 200px;
 		text-wrap: wrap;
@@ -1931,8 +1930,8 @@ h3.section-title-header > button > span {
 @media (min-width:1600px){
 	#ic-external-links {
 		position:fixed;
-		top: 300px;
-		right:150px;
+		top: 400px;
+		right:75px;
 	}
 	#ic-external-links h3 {
 		color: #3a3a3a;
