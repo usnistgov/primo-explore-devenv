@@ -263,6 +263,7 @@ app.component('prmNoSearchResultAfter', {
       </ul>\
     </md-card-content>\
   </md-card>'
+});
 
 /* Display message on authority search page */
 app.component('prmAuthoritySearchAfter', {
