@@ -1948,3 +1948,19 @@ h3.section-title-header > button > span {
     display: none;
   }
 
+/* Authority Search Message Style */
+#authority-search {
+  font-size: 22px;
+  text-align: center;
+  border-top: 1px solid rgba(195, 195, 195, .5);
+  border-bottom: 1px solid rgba(195, 195, 195, .5);
+  padding: 20px 0;
+  margin: 20px 0;
+  position: relative;
+    }
+
+/* style collection discovery banner and collection logo */
+
+/* prm-collection-gallery-header > div.collection-header-inner.has-transparent-topbar.layout-column.has-backdrop-image {
+  background-size: contain;
+} */

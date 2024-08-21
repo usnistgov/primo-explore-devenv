@@ -46,8 +46,9 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
     app.component('prmSearchBarAfter', {
         bindings: {parentCtrl: `<`},
         template: `<my-institution-component></my-institution-component>`
-}); */
 
+});
+ */
                 /*----------Alert After Search Bar END-----------*/
 
 
@@ -79,7 +80,7 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
         `,
         });
 
-// External search links
+// External search links - External Services created by Ithaca College
 app.controller("externalLinkController", [function ($stateParams, $state) {
     this.$onInit = function () {
       {
@@ -262,6 +263,30 @@ app.component('prmNoSearchResultAfter', {
       </ul>\
     </md-card-content>\
   </md-card>'
+
+/* Display message on authority search page */
+app.component('prmAuthoritySearchAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmAuthoritySearchAfterController',
+    template: '<div id="authority-search" layout="row" layout-align="center center">The NIST Library & Museum is not using this feature. Please try your search in <a href="https://nist.primo.exlibrisgroup.com/discovery/search?vid=01NIST_INST:01NIST">NIST Library Search</a></div>'
+
 });
+
+//START - Google Analytics
+
+var googleAnalyticsUrl = document.createElement('script');
+googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
+googleAnalyticsUrl.type = 'text/javascript';
+googleAnalyticsUrl.async = true;
+document.head.appendChild(googleAnalyticsUrl);
+
+var googleAnalyticsCode = document.createElement('script');
+googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4KM704R98T');`;
+document.head.appendChild(googleAnalyticsCode);
+
+//END - Google Analytics
 
 })();

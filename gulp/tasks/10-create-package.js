@@ -12,7 +12,7 @@ gulp.task('create-package', gulp.series('select-view', 'custom-js','custom-scss'
     console.log(' in  : /packages');
     console.log('\r\n');
     console.log('............................................................................................................................................');
-    return gulp.src(['./primo-explore/custom/'+code,'./primo-explore/custom/'+code+'/html/**','./primo-explore/custom/'+code+'/img/**','./primo-explore/custom/'+code+'/css/custom1.css','./primo-explore/custom/'+code+'/js/custom.js'], {base: './primo-explore/custom'})
+    return gulp.src(['./primo-explore/custom/'+code,'./primo-explore/custom/'+code+'/html/**','./primo-explore/custom/'+code+'/img/**','./primo-explore/custom/'+code+'/css/custom1.css','./primo-explore/custom/'+code+'/js/**'], {base: './primo-explore/custom'})
         .pipe(zip(code+'.zip'))
         .pipe(gulp.dest('./packages/'));
     cb();
