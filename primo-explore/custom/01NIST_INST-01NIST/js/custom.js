@@ -276,6 +276,7 @@ app.component('prmAuthoritySearchAfter', {
 //START - Google Analytics
 //STANDARD CODE with edit to first line from 'async src' to 'googleAnalyticsUrl.src'
 
+var googleAnalyticsUrl = document.createElement('script');
 googleAnalyticsUrl.src ="https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());
