@@ -80,26 +80,25 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
         `,
         });
 
-<<<<<<< HEAD
 /* Carousel Showcase script */
-            function loadJS(FILE_URL, async = true) {
-                let scriptEle = document.createElement("script");
-                scriptEle.setAttribute("src", FILE_URL);
-                scriptEle.setAttribute("type", "module");
-                scriptEle.setAttribute("async", async);
-                document.body.appendChild(scriptEle);
-                // success event
-                scriptEle.addEventListener("load", () => {
-                    console.log("File loaded")
-                });
-                // error event
-                scriptEle.addEventListener("error", (ev) => {
-                    console.log("Error on loading file", ev);
-                });
-            }
-            loadJS('/discovery/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js')
-            var app = angular.module('viewCustom', ['angularLoad']);
-=======
+function loadJS(FILE_URL, async = true) {
+  let scriptEle = document.createElement("script");
+  scriptEle.setAttribute("src", FILE_URL);
+  scriptEle.setAttribute("type", "module");
+  scriptEle.setAttribute("async", async);
+  document.body.appendChild(scriptEle);
+  // success event
+  scriptEle.addEventListener("load", () => {
+      console.log("File loaded")
+  });
+  // error event
+  scriptEle.addEventListener("error", (ev) => {
+      console.log("Error on loading file", ev);
+  });
+}
+loadJS('/discovery/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js')
+var app = angular.module('viewCustom', ['angularLoad']);
+
 // External search links - External Services created by Ithaca College
 app.controller("externalLinkController", [function ($stateParams, $state) {
     this.$onInit = function () {
@@ -316,6 +315,5 @@ gtag('config', 'G-4KM704R98T');`;
 document.head.appendChild(googleAnalyticsCode);
 
 //END - Google Analytics
->>>>>>> main
 
 })();
