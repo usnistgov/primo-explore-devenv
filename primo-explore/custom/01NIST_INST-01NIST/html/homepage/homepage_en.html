@@ -46,7 +46,10 @@
                         This "What's New" card on the landing page
                     </li>
                     <li>
-                        Carousel, featuring NIST Authors in Journal of Visualized Experiments (JoVE)
+                        Carousel (below), which features NIST Authors in Journal of Visualized Experiments (JoVE)
+                    </li>
+                    <li>
+                        Identifiers now display in each record, e.g., DOI, ISBN, ISSN.
                     </li>
                 </ul>
 				<p>Additional details on current and past releases can be found on <a href="https://github.com/usnistgov/primo-explore-devenv/releases" class="arrow-link">
@@ -91,14 +94,19 @@
             </md-card-content>
         </md-card>
     </div>
-</md-content>
+    </md-content>
+    <md-content layout-xs="column" layout="row">
+        <div flex="100" layout="column">
+        <md-card class="default-card">
+            <search-carousel titleText="NIST Authors in Journal of Visualized Experiments (JoVE)" titleLink="https://nist.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=01NIST_INST:01NIST&collectionId=8128520000008106&lang=en" defaultThumbnailUrl="../dist/default.png" searchUrl="https://nist.primo.exlibrisgroup.com/primaws/rest/external/pnxs?acTriggered=false&blendFacetsSeparately=false&citationTrailFilterByAvailability=false&disableCache=false&getMore=0&inst=01NIST_INST&isCDSearch=false&lang=en&limit=20&newspapersActive=true&newspapersSearch=false&offset=0&otbRanking=false&pcAvailability=true&q=any,contains,%22*%22&qExclude=&qInclude=facet_digital_collection,exact,8128520000008106&rapido=false&refEntryActive=true&rtaLinks=true&scope=MyInst_and_CI&searchInFulltextUserSelection=false&skipDelivery=Y&sort=rank&tab=Everything&vid=01NIST_INST:01NIST"></search-carousel>
+        </div>
+        </md-content>
 <md-content layout-xs="column" layout="row">
     <center><div flex-xs flex="80" layout="column">
         <md-card class="default-card">
             <md-card-content>
               <font size="-1"><p>You are accessing a U.S. Government information system, which includes: 1) this computer, 2) this computer network, 3) all computers connected to this network, and 4) all devices and storage media attached to this network or to a computer on this network. You understand and consent to the following: you may access this information system for authorized use only; you have no reasonable expectation of privacy regarding any communication of data transiting or stored on this information system; at any time and for any lawful Government purpose, the Government may monitor, intercept, and search and seize any communication or data transiting or stored on this information system; and any communications or data transiting or stored on this information system may be disclosed or used for any lawful Government purpose.</p></font>
             </md-card-content>
-        </md-card>
-		</div></center>
+        </md-card></center>
     </div>
 	</md-content>
