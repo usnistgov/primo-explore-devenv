@@ -1803,8 +1803,6 @@ md-list.prm-list.prm-linkable-list-items .md-button.arrow-link-button md-list-it
   position: relative;
   }
 
-<<<<<<< HEAD
-=======
 /* Fetch Item - Citation Linker Hide certain fields BEGIN */
 
 /* removes radio 1 - books */
@@ -1838,7 +1836,6 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
   display:none;
   }
 
->>>>>>> main
 /* LOCAL Alert BANNER
 body::before
 {
@@ -1883,7 +1880,6 @@ prm-gallery-item-after {
   padding-bottom: 30px;
   }
 
-<<<<<<< HEAD
 
   /* Search Carousel styling */
   search-carousel {
@@ -1898,7 +1894,6 @@ prm-gallery-item-after {
     margin: 0 auto;
     line-height: normal;
  }
-=======
 /*          BEGIN EXTERNAL SEARCH        */
 
 /* Links to External Services created by Ithaca College*/
@@ -1983,4 +1978,3 @@ h3.section-title-header > button > span {
 /* prm-collection-gallery-header > div.collection-header-inner.has-transparent-topbar.layout-column.has-backdrop-image {
   background-size: contain;
 } */
->>>>>>> main
