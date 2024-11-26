@@ -53,31 +53,31 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
 
 
                 /*------------Collection Discovery author and date display------------*/
-    app.component('prmGalleryItemAfter', {
-        bindings: {
-        parentCtrl: '<'
-        },
-        controller: function () {
-        var $ctrl = this;
-        $ctrl.$onInit = function () {
-        try {
-        $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
-        } catch (e) {
-        $ctrl.author = '';
-        }
-        try {
-        $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
-        } catch (e) {
-        $ctrl.date = '';
-        }
-        $ctrl.hasDate = !!$ctrl.date;
-        $ctrl.hasAuthor = !!$ctrl.author;
-        };
-        },
-        template: `
-        <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
-        <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
-        `,
+                app.component('prmGalleryItemAfter', {
+                  bindings: {
+                  parentCtrl: '<'
+                  },
+                  controller: function () {
+                  var $ctrl = this;
+                  $ctrl.$onInit = function () {
+                  try {
+                  $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
+                  } catch (e) {
+                  $ctrl.author = '';
+                  }
+                  try {
+                  $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
+                  } catch (e) {
+                  $ctrl.date = '';
+                  }
+                  $ctrl.hasDate = !!$ctrl.date;
+                  $ctrl.hasAuthor = !!$ctrl.author;
+                  };
+                  },
+                  template: `
+                  <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
+                  <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
+                  `,
         });
 
 /* Carousel Showcase script */
@@ -97,7 +97,7 @@ function loadJS(FILE_URL, async = true) {
   });
 }
 loadJS('/discovery/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js')
-var app = angular.module('viewCustom', ['angularLoad']);
+//var app = angular.module('viewCustom', ['angularLoad']);
 
 // External search links - External Services created by Ithaca College
 app.controller("externalLinkController", [function ($stateParams, $state) {
