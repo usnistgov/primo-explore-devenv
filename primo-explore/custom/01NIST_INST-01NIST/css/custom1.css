@@ -1865,21 +1865,22 @@ prm-gallery-item-after {
   padding: 20px 15px;
   display: block;
   margin-top: -30px;
-  }
-
-  prm-gallery-item-after div {
+}
+prm-gallery-item-after div {
   margin-bottom: -40px;
   margin-top: -20px;
-  }
-
-  .is-grid-view prm-gallery-item .collection-element {
+  display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.is-grid-view prm-gallery-item .collection-element {
   padding: 15px;
-  }
-
-  prm-gallery-item .collection-element .item-title {
-  padding-bottom: 30px;
-  }
-
+}
+prm-gallery-item .collection-element .item-title {
+ padding-bottom: 30px;
+}
 
   /* Search Carousel styling */
   search-carousel {
