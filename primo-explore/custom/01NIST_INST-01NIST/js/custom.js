@@ -316,4 +316,96 @@ document.head.appendChild(googleAnalyticsCode);
 
 //END - Google Analytics
 
+
+
+
+// Add Help icon & menu -- Thanks to SUNY UB
+app.component('prmSearchBookmarkFilterAfter', {
+  template: `
+  <span id="helpdoc" ng-class="{'fixed-to-top': $ctrl.fixedToTop(), 'mobile-bookmarkFilter-pos': (($ctrl.isToolBareEnable() &amp;&amp; ($ctrl.mediaQueries.xs || $ctrl.mediaQueries.sm)) ||  ($ctrl.facetToLeft &amp;&amp; $ctrl.mediaQueries.md))}" ng-style="($ctrl.mediaQueries.xs &amp;&amp; {'right': '0'})" layout="row" layout-align="center center" class="layout-align-center-center layout-row helpdoc">
+    <a class="md-icon-button button-over-dark md-button md-primoExplore-theme md-ink-ripple" href="" aria-label="Get help" title="Get help" target="_blank">
+      <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
+    </a>
+  </span>
+  <div class="md-ripple-container"></div>
+    <!-- Help Menu content -->
+    <div id="clearContainer"></div>
+    <div id="helpMenuContainer" class="helpMenu-content hidden" style="opacity:0">
+      <span class="close">&times;</span>
+      <div id="helpMenuBox" style="opacity:0">
+        <a href="https://inet.nist.gov/mr/library/how-use-nist-library-search" target="_blank">NIST Library Search Tips &amp; Videos</a>
+        <a href="https://nist.servicenowservices.com/library?id=sc_category&catalog_id=f10372691ba2d4d0f5659605bc4bcb25" target="_blank">Library and Museum ServiceNow Catalog</a>
+        <a href="https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/150End_User_Help" target="_blank">Vendor Created Documentation</a>
+      </div>
+  </div>
+  `,
+  controller: function () {
+    // Get the Help Menu
+    const helpMenu = document.getElementById("helpMenuContainer");
+
+    // Get the button that opens the Help Menu
+    const btn = document.getElementById("helpdoc");
+
+    // Get the <span> element that closes the Help Menu
+    const span = document.getElementsByClassName("close")[0];
+
+    // Get the outside click <div> element
+    const outsideDiv = document.getElementById("clearContainer");
+
+    // Get Help Menu links container <div>
+    const helpMenuBox = document.getElementById("helpMenuBox");
+
+    // Functions
+    function showMenu() {
+      helpMenu.classList.remove('hidden');
+      outsideDiv.style.display = "block";
+      setTimeout(() => {
+        helpMenu.style.opacity = 1;
+        helpMenu.classList.add('scaleUp');
+        helpMenuBox.style.opacity = 1;
+        document.body.style.overflow = "hidden";
+      }, 100);
+    };
+
+    function closeMenu() {
+      helpMenu.style.opacity = 0;
+      document.body.style.overflow = "visible";
+      outsideDiv.style.display = "none";
+      helpMenuBox.style.opacity = 0;
+      setTimeout(() => {
+        helpMenu.classList.add('hidden');
+        helpMenu.classList.remove('scaleUp');
+      }, 300);
+    }
+
+    // When the user clicks the button, open the Help Menu
+    btn.addEventListener("click", function() {
+      if (helpMenu.classList.contains('hidden')) {
+        showMenu();
+      };
+    });
+
+    // When the user clicks on <span> (x), close the Help Menu
+    span.addEventListener("click", function() {
+      closeMenu();
+    });
+
+    // When the user clicks anywhere outside of the Help Menu, close it
+    window.onclick = function(event) {
+      const outsideArea = document.getElementById("clearContainer");
+        if (event.target === outsideArea) {
+          closeMenu();
+      };
+    }
+
+    // Close menu on 'Esc' key stroke
+    window.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && helpMenu.classList.contains('hidden') == false) {
+        closeMenu();
+      }
+    })
+  }
+});
+// end Help
+
 })();
