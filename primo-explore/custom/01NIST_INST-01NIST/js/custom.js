@@ -334,8 +334,8 @@ app.component('prmSearchBookmarkFilterAfter', {
       <span class="close">&times;</span>
       <div id="helpMenuBox" style="opacity:0">
         <a href="https://inet.nist.gov/mr/library/how-use-nist-library-search" target="_blank">NIST Library Search Tips &amp; Videos</a>
-        <a href="https://nist.servicenowservices.com/library?id=sc_category&catalog_id=f10372691ba2d4d0f5659605bc4bcb25" target="_blank">Library and Museum Service Portal Catalog</a>
-        <a href="https://inet.nist.gov/mr/library/publishing-support-nist-publications" target="_blank">NIST Publishing Support</a>
+        <a href="https://nist.servicenowservices.com/library?id=sc_category&catalog_id=f10372691ba2d4d0f5659605bc4bcb25" target="_blank">Library and Museum ServiceNow Catalog</a>
+        <a href="https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/150End_User_Help" target="_blank">Vendor Created Documentation</a>
       </div>
   </div>
   `,
