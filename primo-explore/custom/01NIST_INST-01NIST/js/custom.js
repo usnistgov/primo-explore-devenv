@@ -21,10 +21,9 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
 
         function getPermalink() {
             var permalink = encodeURIComponent(window.location.href);
-
             var formField = 'https://nist.servicenowservices.com/library?id=sc_cat_item&sys_id=529edfea1b795410348d9605bc4bcb66&referring_url=';
             formField += permalink;
-           return formField;
+            return formField;
         }
             }
         };
@@ -33,7 +32,7 @@ app.controller('someController', ['angularLoad', function (angularLoad) {
     app.component('prmActionContainerAfter', {
         bindings: { parentCtrl: '<' },
         controller: 'prmActionContainerAfterController',
-        template: '<div id="report-problem" layout="row" layout-align="center center"><a id="problemLink" target="_blank" href="{{$ctrl.getPermalink()}}" title="Report a problem"><img src="/discovery/custom/01NIST_INST-01NIST/img/icon_warning.png">&nbsp;&nbsp;Report a problem with this item</a></div>'
+        template: '<div id="report-problem" layout="row" layout-align="center center"><a id="problemLink" target="_blank" href="{{$ctrl.getPermalink()}}" title="Report a problem"><img src="/discovery/custom/01NIST_INST-01NIST/img/icon_warning.png" alt="exclamation mark inside a triangle">&nbsp;&nbsp;Report a problem with this item</a></div>'
     });
 
                 /*----------Servicenow item level help link ends here-----------*/
