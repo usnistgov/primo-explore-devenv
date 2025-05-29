@@ -1836,10 +1836,10 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
   display:none;
   }
 
-/* LOCAL Alert BANNER
-body::before
+/* LOCAL Alert BANNER */
+/* body::before
 {
-    content: "Sign in now uses the new OKTA authentication method";
+    content: "TEXT APPEARS AT TOP OF PAGE";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1849,16 +1849,21 @@ body::before
 
 } */
 
-/* prm-search-bar-after {
+/* END local banner */
+
+/* BEGIN Bibtext Citation Banner */
+
+prm-service-header-after {
 display: inline-block;
-background: #FFFF00;
-width: 100%;
+background: white;
+width: auto;
 font-weight: normal;
 font-size: large;
 padding: 5px 0;
 margin: 5px 0;
-} */
-/* END local banner */
+}
+
+/* END Bibtext Citation Banner */
 
 /* Collection Discovery Author + Date */
 prm-gallery-item-after {

@@ -37,18 +37,36 @@
 
   /*----------Servicenow item level help link ends here-----------*/
 
+
   /*----------Alert After Search Bar BEGIN-----------*/
-  /*     app.component('myInstitutionComponent', {
-          template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
-      });
+    // Top line version
+    //  app.component('prmSearchResultAvailabilityLineAfterController', {
+    //       template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
+    //   });
 
-      app.component('prmSearchBarAfter', {
-          bindings: {parentCtrl: `<`},
-          template: `<my-institution-component></my-institution-component>`
-
-  });
-   */
   /*----------Alert After Search Bar END-----------*/
+
+
+  /*----------Alert After Send To Citation BEGIN-----------*/
+      app.controller('prmServiceHeaderAfterController', [function () {
+        var $ctrl = this;
+        $ctrl.$onInit = function () {
+          // No logic needed for now
+        };
+      }]);
+
+      app.component('prmServiceHeaderAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmServiceHeaderAfterController',
+        template: `
+          <div ng-if="$ctrl.parentCtrl.title === 'Send to' || $ctrl.parentCtrl.title === 'nui.brief.results.tabs.send_to'">
+            <my-institution-component>
+              <span> Use the <b>CITATION</b> button for BibTex citations.</span>
+            </my-institution-component>
+          </div>
+        `
+      });
+  /*----------Alert After Send To Citation END-----------*/
 
 
   /*------------Collection Discovery author and date display------------*/
