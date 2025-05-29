@@ -1,105 +1,105 @@
-(function(){
-"use strict";
-'use strict';
+(function () {
+  "use strict";
+  'use strict';
 
-var app = angular.module('viewCustom', ['angularLoad']);
+  var app = angular.module('viewCustom', ['angularLoad']);
 
 
-app.controller('someController', ['angularLoad', function (angularLoad) {
+  app.controller('someController', ['angularLoad', function (angularLoad) {
     angularLoad.loadScript('/primo-explore/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js');
-    }]);
+  }]);
 
-/*----------below is the code for Servicenow item level help link-----------*/
+  /*----------below is the code for Servicenow item level help link-----------*/
 
-       app.controller('prmActionContainerAfterController', [function () {
-        var vm = this;
+  app.controller('prmActionContainerAfterController', [function () {
+    var vm = this;
 
-        this.$onInit = function(){
-            {
+    this.$onInit = function () {
+      {
 
         vm.getPermalink = getPermalink;
 
         function getPermalink() {
-            var permalink = encodeURIComponent(window.location.href);
-            var formField = 'https://nist.servicenowservices.com/library?id=sc_cat_item&sys_id=529edfea1b795410348d9605bc4bcb66&referring_url=';
-            formField += permalink;
-            return formField;
+          var permalink = encodeURIComponent(window.location.href);
+          var formField = 'https://nist.servicenowservices.com/library?id=sc_cat_item&sys_id=529edfea1b795410348d9605bc4bcb66&referring_url=';
+          formField += permalink;
+          return formField;
         }
-            }
-        };
-    }]);
+      }
+    };
+  }]);
 
-    app.component('prmActionContainerAfter', {
-        bindings: { parentCtrl: '<' },
-        controller: 'prmActionContainerAfterController',
-        template: '<div id="report-problem" layout="row" layout-align="center center"><a id="problemLink" target="_blank" href="{{$ctrl.getPermalink()}}" title="Report a problem"><img src="/discovery/custom/01NIST_INST-01NIST/img/icon_warning.png" alt="exclamation mark inside a triangle">&nbsp;&nbsp;Report a problem with this item</a></div>'
-    });
+  app.component('prmActionContainerAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmActionContainerAfterController',
+    template: '<div id="report-problem" layout="row" layout-align="center center"><a id="problemLink" target="_blank" href="{{$ctrl.getPermalink()}}" title="Report a problem"><img src="/discovery/custom/01NIST_INST-01NIST/img/icon_warning.png" alt="exclamation mark inside a triangle">&nbsp;&nbsp;Report a problem with this item</a></div>'
+  });
 
-                /*----------Servicenow item level help link ends here-----------*/
+  /*----------Servicenow item level help link ends here-----------*/
 
-                /*----------Alert After Search Bar BEGIN-----------*/
-/*     app.component('myInstitutionComponent', {
-        template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
-    });
+  /*----------Alert After Search Bar BEGIN-----------*/
+  /*     app.component('myInstitutionComponent', {
+          template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
+      });
 
-    app.component('prmSearchBarAfter', {
-        bindings: {parentCtrl: `<`},
-        template: `<my-institution-component></my-institution-component>`
+      app.component('prmSearchBarAfter', {
+          bindings: {parentCtrl: `<`},
+          template: `<my-institution-component></my-institution-component>`
 
-});
- */
-                /*----------Alert After Search Bar END-----------*/
+  });
+   */
+  /*----------Alert After Search Bar END-----------*/
 
 
-                /*------------Collection Discovery author and date display------------*/
-    app.component('prmGalleryItemAfter', {
-        bindings: {
-        parentCtrl: '<'
-        },
-        controller: function () {
-        var $ctrl = this;
-        $ctrl.$onInit = function () {
+  /*------------Collection Discovery author and date display------------*/
+  app.component('prmGalleryItemAfter', {
+    bindings: {
+      parentCtrl: '<'
+    },
+    controller: function () {
+      var $ctrl = this;
+      $ctrl.$onInit = function () {
         try {
-        $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
+          $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
         } catch (e) {
-        $ctrl.author = '';
+          $ctrl.author = '';
         }
         try {
-        $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
+          $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
         } catch (e) {
-        $ctrl.date = '';
+          $ctrl.date = '';
         }
         $ctrl.hasDate = !!$ctrl.date;
         $ctrl.hasAuthor = !!$ctrl.author;
-        };
-        },
-        template: `
+      };
+    },
+    template: `
         <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
         <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
         `,
-    });
+  });
 
-/* Carousel Showcase script */
-function loadJS(FILE_URL, async = true) {
-  let scriptEle = document.createElement("script");
-  scriptEle.setAttribute("src", FILE_URL);
-  scriptEle.setAttribute("type", "module");
-  scriptEle.setAttribute("async", async);
-  document.body.appendChild(scriptEle);
-  // success event
-  scriptEle.addEventListener("load", () => {
+  /* Carousel Showcase script */
+  function loadJS(FILE_URL, async = true) {
+    let scriptEle = document.createElement("script");
+    scriptEle.setAttribute("src", FILE_URL);
+    scriptEle.setAttribute("type", "module");
+    scriptEle.setAttribute("async", async);
+    document.body.appendChild(scriptEle);
+    // success event
+    scriptEle.addEventListener("load", () => {
       console.log("File loaded")
-  });
-  // error event
-  scriptEle.addEventListener("error", (ev) => {
+    });
+    // error event
+    scriptEle.addEventListener("error", (ev) => {
       console.log("Error on loading file", ev);
-  });
-}
-loadJS('/discovery/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js')
-//var app = angular.module('viewCustom', ['angularLoad']);
+    });
+  }
+  loadJS('/discovery/custom/01NIST_INST-01NIST/js/discovery-showcase.bundled.js')
+  //var app = angular.module('viewCustom', ['angularLoad']);
 
-// External search links - External Services created by Ithaca College
-app.controller("externalLinkController", [function ($stateParams, $state) {
+  // External search links - External Services created by Ithaca College
+  app.controller("externalLinkController", [function ($stateParams, $state) {
     this.$onInit = function () {
       {
         var spaceToPlus = function spaceToPlus(str) {
@@ -222,7 +222,7 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
 
         this.worldCatLabel = "WorldCat";
         var worldCatBaseUrl = "https://www.worldcat.org/search?qt=worldcat_org_all&q=";
-        this.worldCatSearchUrl =  worldCatBaseUrl + worldCatSearchString;
+        this.worldCatSearchUrl = worldCatBaseUrl + worldCatSearchString;
       }
     };
   }]);
@@ -232,12 +232,12 @@ app.controller("externalLinkController", [function ($stateParams, $state) {
     template: '<div id="ic-external-links"><h3 ng-class="section-title-header"><span>Try My Search In</span></h3><div id="ic-ebsco-link-block"><a href="{{$ctrl.chipsSearchUrl}}" target="_blank" id="ic-ebsco-link"><img src="custom/{{$ctrl.view}}/img/ebsco.svg" alt=""> {{$ctrl.chipsLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-google-link-block"><a href="{{$ctrl.googleSearchUrl}}" target="_blank" id="ic-google-link"><img src="custom/{{$ctrl.view}}/img/google.svg" alt=""> {{$ctrl.googleLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div><div id="ic-worldcat-link-block"><a href="{{$ctrl.worldCatSearchUrl}}" target="_blank" id="ic-worldcat-link"><img src="custom/{{$ctrl.view}}/img/WorldCat.svg" alt=""> {{$ctrl.worldCatLabel}} <prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="open-in-new"></prm-icon></a></div></div>'
   });
 
-// No Results Page Changes
+  // No Results Page Changes
 
-app.controller('prmNoSearchResultAfterController', [function() {
+  app.controller('prmNoSearchResultAfterController', [function () {
     var vm = this;
 
-    this.$onInit = function(){
+    this.$onInit = function () {
       {
         vm.getSearchTerm = getSearchTerm;
         function getSearchTerm() {
@@ -245,12 +245,12 @@ app.controller('prmNoSearchResultAfterController', [function() {
         }
       }
     };
-}]);
+  }]);
 
-app.component('prmNoSearchResultAfter', {
-  bindings: { parentCtrl: '<' },
-  controller: 'prmNoSearchResultAfterController',
-  template: '<md-card class="default-card zero-margin _md md-primoExplore-theme">\
+  app.component('prmNoSearchResultAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmNoSearchResultAfterController',
+    template: '<md-card class="default-card zero-margin _md md-primoExplore-theme">\
     <md-card-title>\
       <md-card-title-text>\
         <span translate="" class="md-headline ng-scope">No records found.</span>\
@@ -281,46 +281,46 @@ app.component('prmNoSearchResultAfter', {
       </ul>\
     </md-card-content>\
   </md-card>'
-});
+  });
 
-/* Display message on authority search page */
-app.component('prmAuthoritySearchAfter', {
+  /* Display message on authority search page */
+  app.component('prmAuthoritySearchAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmAuthoritySearchAfterController',
     template: '<div id="authority-search" layout="row" layout-align="center center">The NIST Library & Museum is not using this feature. Please try your search in <a href="https://nist.primo.exlibrisgroup.com/discovery/search?vid=01NIST_INST:01NIST">NIST Library Search</a></div>'
 
-});
+  });
 
-//START - Google Analytics
-//STANDARD CODE with edit to first line from 'async src' to 'googleAnalyticsUrl.src'
+  //START - Google Analytics
+  //STANDARD CODE with edit to first line from 'async src' to 'googleAnalyticsUrl.src'
 
-// var googleAnalyticsUrl = document.createElement('script');
-// googleAnalyticsUrl.src ="https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
-// window.dataLayer = window.dataLayer || [];
-// function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());
-// gtag('config', 'G-4KM704R98T');
+  // var googleAnalyticsUrl = document.createElement('script');
+  // googleAnalyticsUrl.src ="https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());
+  // gtag('config', 'G-4KM704R98T');
 
-var googleAnalyticsUrl = document.createElement('script');
-googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
-googleAnalyticsUrl.type = 'text/javascript';
-googleAnalyticsUrl.async = true;
-document.head.appendChild(googleAnalyticsUrl);
+  var googleAnalyticsUrl = document.createElement('script');
+  googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-4KM704R98T";
+  googleAnalyticsUrl.type = 'text/javascript';
+  googleAnalyticsUrl.async = true;
+  document.head.appendChild(googleAnalyticsUrl);
 
-var googleAnalyticsCode = document.createElement('script');
-googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+  var googleAnalyticsCode = document.createElement('script');
+  googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-4KM704R98T');`;
-document.head.appendChild(googleAnalyticsCode);
+  document.head.appendChild(googleAnalyticsCode);
 
-//END - Google Analytics
-
-
+  //END - Google Analytics
 
 
-// Add Help icon & menu -- Thanks to SUNY UB
-app.component('prmSearchBookmarkFilterAfter', {
-  template: `
+
+
+  // Add Help icon & menu -- Thanks to SUNY UB
+  app.component('prmSearchBookmarkFilterAfter', {
+    template: `
   <span id="helpdoc" ng-class="{'fixed-to-top': $ctrl.fixedToTop(), 'mobile-bookmarkFilter-pos': (($ctrl.isToolBareEnable() &amp;&amp; ($ctrl.mediaQueries.xs || $ctrl.mediaQueries.sm)) ||  ($ctrl.facetToLeft &amp;&amp; $ctrl.mediaQueries.md))}" ng-style="($ctrl.mediaQueries.xs &amp;&amp; {'right': '0'})" layout="row" layout-align="center center" class="layout-align-center-center layout-row helpdoc">
     <a class="md-icon-button button-over-dark md-button md-primoExplore-theme md-ink-ripple" href="" aria-label="Get help" title="Get help" target="_blank">
       <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
@@ -338,73 +338,73 @@ app.component('prmSearchBookmarkFilterAfter', {
       </div>
   </div>
   `,
-  controller: function () {
-    // Get the Help Menu
-    const helpMenu = document.getElementById("helpMenuContainer");
+    controller: function () {
+      // Get the Help Menu
+      const helpMenu = document.getElementById("helpMenuContainer");
 
-    // Get the button that opens the Help Menu
-    const btn = document.getElementById("helpdoc");
+      // Get the button that opens the Help Menu
+      const btn = document.getElementById("helpdoc");
 
-    // Get the <span> element that closes the Help Menu
-    const span = document.getElementsByClassName("close")[0];
+      // Get the <span> element that closes the Help Menu
+      const span = document.getElementsByClassName("close")[0];
 
-    // Get the outside click <div> element
-    const outsideDiv = document.getElementById("clearContainer");
+      // Get the outside click <div> element
+      const outsideDiv = document.getElementById("clearContainer");
 
-    // Get Help Menu links container <div>
-    const helpMenuBox = document.getElementById("helpMenuBox");
+      // Get Help Menu links container <div>
+      const helpMenuBox = document.getElementById("helpMenuBox");
 
-    // Functions
-    function showMenu() {
-      helpMenu.classList.remove('hidden');
-      outsideDiv.style.display = "block";
-      setTimeout(() => {
-        helpMenu.style.opacity = 1;
-        helpMenu.classList.add('scaleUp');
-        helpMenuBox.style.opacity = 1;
-        document.body.style.overflow = "hidden";
-      }, 100);
-    };
-
-    function closeMenu() {
-      helpMenu.style.opacity = 0;
-      document.body.style.overflow = "visible";
-      outsideDiv.style.display = "none";
-      helpMenuBox.style.opacity = 0;
-      setTimeout(() => {
-        helpMenu.classList.add('hidden');
-        helpMenu.classList.remove('scaleUp');
-      }, 300);
-    }
-
-    // When the user clicks the button, open the Help Menu
-    btn.addEventListener("click", function() {
-      if (helpMenu.classList.contains('hidden')) {
-        showMenu();
+      // Functions
+      function showMenu() {
+        helpMenu.classList.remove('hidden');
+        outsideDiv.style.display = "block";
+        setTimeout(() => {
+          helpMenu.style.opacity = 1;
+          helpMenu.classList.add('scaleUp');
+          helpMenuBox.style.opacity = 1;
+          document.body.style.overflow = "hidden";
+        }, 100);
       };
-    });
 
-    // When the user clicks on <span> (x), close the Help Menu
-    span.addEventListener("click", function() {
-      closeMenu();
-    });
+      function closeMenu() {
+        helpMenu.style.opacity = 0;
+        document.body.style.overflow = "visible";
+        outsideDiv.style.display = "none";
+        helpMenuBox.style.opacity = 0;
+        setTimeout(() => {
+          helpMenu.classList.add('hidden');
+          helpMenu.classList.remove('scaleUp');
+        }, 300);
+      }
 
-    // When the user clicks anywhere outside of the Help Menu, close it
-    window.onclick = function(event) {
-      const outsideArea = document.getElementById("clearContainer");
+      // When the user clicks the button, open the Help Menu
+      btn.addEventListener("click", function () {
+        if (helpMenu.classList.contains('hidden')) {
+          showMenu();
+        };
+      });
+
+      // When the user clicks on <span> (x), close the Help Menu
+      span.addEventListener("click", function () {
+        closeMenu();
+      });
+
+      // When the user clicks anywhere outside of the Help Menu, close it
+      window.onclick = function (event) {
+        const outsideArea = document.getElementById("clearContainer");
         if (event.target === outsideArea) {
           closeMenu();
-      };
-    }
-
-    // Close menu on 'Esc' key stroke
-    window.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && helpMenu.classList.contains('hidden') == false) {
-        closeMenu();
+        };
       }
-    })
-  }
-});
-// end Help
+
+      // Close menu on 'Esc' key stroke
+      window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && helpMenu.classList.contains('hidden') == false) {
+          closeMenu();
+        }
+      })
+    }
+  });
+  // end Help
 
 })();
