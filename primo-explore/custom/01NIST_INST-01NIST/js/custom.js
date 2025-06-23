@@ -71,30 +71,37 @@
 
   /*------------Collection Discovery author and date display------------*/
   app.component('prmGalleryItemAfter', {
-    bindings: {
-      parentCtrl: '<'
-    },
-    controller: function () {
-      var $ctrl = this;
-      $ctrl.$onInit = function () {
-        try {
-          $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
-        } catch (e) {
-          $ctrl.author = '';
-        }
-        try {
-          $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
-        } catch (e) {
-          $ctrl.date = '';
-        }
-        $ctrl.hasDate = !!$ctrl.date;
-        $ctrl.hasAuthor = !!$ctrl.author;
-      };
-    },
-    template: `
-        <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
-        <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
-        `,
+  bindings: {
+    parentCtrl: '<'
+  },
+  controller: function () {
+    var $ctrl = this;
+    $ctrl.$onInit = function () {
+      try {
+        $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
+      } catch (e) {
+        $ctrl.author = '';
+      }
+      try {
+        $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
+      } catch (e) {
+        $ctrl.date = '';
+      }
+      try {
+        $ctrl.code = $ctrl.parentCtrl.item.pnx.display.lds02[0];
+      } catch (e) {
+        $ctrl.code = '';
+      }
+      $ctrl.hasDate = !!$ctrl.date;
+      $ctrl.hasAuthor = !!$ctrl.author;
+      $ctrl.hasCode = !!$ctrl.code;
+    };
+  },
+  template: `
+      <div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div>
+      <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>
+      <div ng-if="$ctrl.hasCode">Series No: {{$ctrl.code}}</div>
+      `,
   });
 
   /* Carousel Showcase script */
