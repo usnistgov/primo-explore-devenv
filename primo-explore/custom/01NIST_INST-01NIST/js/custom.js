@@ -88,7 +88,7 @@
         $ctrl.date = '';
       }
       try {
-        $ctrl.code = $ctrl.parentCtrl.item.pnx.display.lds02[0];
+        $ctrl.code = $ctrl.parentCtrl.item.pnx.display.lds01[0];
       } catch (e) {
         $ctrl.code = '';
       }
