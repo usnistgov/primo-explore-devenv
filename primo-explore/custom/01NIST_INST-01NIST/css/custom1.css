@@ -1840,10 +1840,10 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
   display:none;
   }
 
-/* LOCAL Alert BANNER */
-/* body::before
+/* LOCAL Alert BANNER
+body::before
 {
-    content: "TEXT APPEARS AT TOP OF PAGE";
+    content: "[message goes here]";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1852,6 +1852,15 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
     font-size: large;
 
 } */
+
+/* prm-search-bar-after {
+display: inline-block;
+background: #FFFF00;
+width: 100%;
+font-weight: bold;
+font-size: large;
+padding: 5px 0;
+margin: 5px 0; */
 
 /* END local banner */
 
@@ -2101,3 +2110,4 @@ prm-search-bar {
   }
 }
 /*         END HELP MENU          */
+
