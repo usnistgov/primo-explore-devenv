@@ -1,8 +1,3 @@
-/* NIST Tech Series Description Style for Links */
-a:link.tsLink {
-  background-color: white;
-}
-
 /* primary color hook */
 .md-button {
   color: #3a3a3a; }
@@ -2111,3 +2106,7 @@ prm-search-bar {
 }
 /*         END HELP MENU          */
 
+/* NIST Tech Series Description Style for Links */
+a:link.tsLink {
+  background-color: white;
+}
