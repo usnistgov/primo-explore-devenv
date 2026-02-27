@@ -39,10 +39,14 @@
 
 
   /*----------Alert After Search Bar BEGIN-----------*/
-    // Top line version
-    //  app.component('prmSearchResultAvailabilityLineAfterController', {
-    //       template: `<span style="margin-left: 40%;">Starting soon, <b>Sign in</b> will use the new <a href="https://inet.nist.gov/pao/drupal-documentation/okta-login-process" target="_blank">OKTA authentication method.</a></span>`
-    //   });
+    app.component('myInstitutionComponent', {
+        template: `<span style="">NIST access to SpringerNature titles has lapsed for FY26. Please <a href="https://inet.nist.gov/mr/library/announcement/update-library-resources" target="_blank">see INET for more details.</a></span>`
+    });
+
+    app.component('prmSearchBarAfter', {
+        bindings: {parentCtrl: `<`},
+        template: `<my-institution-component></my-institution-component>`
+});
 
   /*----------Alert After Search Bar END-----------*/
 

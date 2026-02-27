@@ -1835,10 +1835,10 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
   display:none;
   }
 
-/* LOCAL Alert BANNER
-body::before
+/* BEGIN LOCAL Alert Banner */
+/* body::before
 {
-    content: "[message goes here]";
+    content: "[plain text message goes here]";
     display: inline-block;
     background: #FFFF00;
     text-align: center;
@@ -1848,14 +1848,16 @@ body::before
 
 } */
 
-/* prm-search-bar-after {
+ prm-search-bar-after {
 display: inline-block;
+text-align: center;
 background: #FFFF00;
 width: 100%;
 font-weight: bold;
 font-size: large;
 padding: 5px 0;
-margin: 5px 0; */
+margin: 5px 0;
+}
 
 /* END local banner */
 
