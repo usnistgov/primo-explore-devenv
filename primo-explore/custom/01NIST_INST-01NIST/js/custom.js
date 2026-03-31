@@ -39,14 +39,14 @@
 
 
   /*----------Alert After Search Bar BEGIN-----------*/
-    app.component('myInstitutionComponent', {
-        template: `<span style="">NIST access to SpringerNature titles has lapsed for FY26. Please <a href="https://inet.nist.gov/mr/library/announcement/update-library-resources" target="_blank">see INET for more details.</a></span>`
-    });
+//     app.component('myInstitutionComponent', {
+//         template: `<span style="">[ALERT MESSAGE] <a href="URL" target="_blank">[END OF ALERT]</a></span>`
+//     });
 
-    app.component('prmSearchBarAfter', {
-        bindings: {parentCtrl: `<`},
-        template: `<my-institution-component></my-institution-component>`
-});
+//     app.component('prmSearchBarAfter', {
+//         bindings: {parentCtrl: `<`},
+//         template: `<my-institution-component></my-institution-component>`
+// });
 
   /*----------Alert After Search Bar END-----------*/
 

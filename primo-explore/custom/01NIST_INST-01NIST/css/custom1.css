@@ -1848,7 +1848,7 @@ div.request-form-group-item:has([translate="citationLinker.issn"]) {
 
 } */
 
- prm-search-bar-after {
+ /* prm-search-bar-after {
 display: inline-block;
 text-align: center;
 background: #FFFF00;
@@ -1857,7 +1857,7 @@ font-weight: bold;
 font-size: large;
 padding: 5px 0;
 margin: 5px 0;
-}
+} */
 
 /* END local banner */
 
