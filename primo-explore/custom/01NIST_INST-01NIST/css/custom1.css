@@ -2112,3 +2112,15 @@ prm-search-bar {
 a:link.tsLink {
   background-color: white;
 }
+
+/* Hide Non-Boulder NOAA Libraries from the Library facet section */
+div.facet-element-marker-library[data-facet-value='library-7381–112080000007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112080320007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112081280007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112081920007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112082880007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112083200007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112083520007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112084160007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112084800007381']{display:none!important;}
+div.facet-element-marker-library[data-facet-value='library-7381–112085120007381']{display:none!important;}
