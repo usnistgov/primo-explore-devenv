@@ -2113,15 +2113,31 @@ a:link.tsLink {
   background-color: white;
 }
 
-/* Hide Non-Boulder NOAA Libraries from the Library facet section */
+/*          BEGIN Hide Non-Boulder NOAA Libraries from the Library facet section          */
+
+/* Natl. Centers for Envir. Information Library - ASHEVILLE */
 div.facet-element-marker-library[data-facet-value='library-7381–112080000007381']{display:none!important;}
+/* Betty Petersen Memorial Library - COLLEGEPRK */
 div.facet-element-marker-library[data-facet-value='library-7381–112080320007381']{display:none!important;}
+/* SWFSC La Jolla Laboratory Library - LAJOLLA */
 div.facet-element-marker-library[data-facet-value='library-7381–112081280007381']{display:none!important;}
+/* SEFSC Miami Laboratory Library - MIAMISEF */
 div.facet-element-marker-library[data-facet-value='library-7381–112081920007381']{display:none!important;}
+/* SEFSC Panama City Laboratory Library - PANAMACITY */
 div.facet-element-marker-library[data-facet-value='library-7381–112082880007381']{display:none!important;}
+/* SEFSC Pascagoula Laboratory Library - PASCAGOULA */
 div.facet-element-marker-library[data-facet-value='library-7381–112083200007381']{display:none!important;}
+/* Geophysical Fluid Dynamics Lab. Library - PRINCETON */
 div.facet-element-marker-library[data-facet-value='library-7381–112083520007381']{display:none!important;}
+/* National Marine Mammal Laboratory Library - SEATTLEMML */
 div.facet-element-marker-library[data-facet-value='library-7381–112084160007381']{display:none!important;}
+/* NOAA Seattle Library - SEATTLEREG */
 div.facet-element-marker-library[data-facet-value='library-7381–112084800007381']{display:none!important;}
+/* NOAA Central Library - SILVERSPRG */
 div.facet-element-marker-library[data-facet-value='library-7381–112085120007381']{display:none!important;}
+/* Great Lakes Environmental Research Laboratory Library - ANNARBOR */
 div.facet-element-marker-library[data-facet-value='library-7381–112079680007381']{display:none!important;}
+/* SWFSC Santa Cruz Library - SANTACRUZ */
+div.facet-element-marker-library[data-facet-value='library-7381–112083840007381']{display:none!important;}
+
+/*          END Hide Non-Boulder NOAA Libraries from the Library facet section          */
