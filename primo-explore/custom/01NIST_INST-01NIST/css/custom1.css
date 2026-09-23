@@ -2141,3 +2141,12 @@ div.facet-element-marker-library[data-facet-value='library-7381–11207968000738
 div.facet-element-marker-library[data-facet-value='library-7381–112083840007381']{display:none!important;}
 
 /*          END Hide Non-Boulder NOAA Libraries from the Library facet section          */
+
+/*  for NIST HTML callout */
+.partner-library-callout {
+  margin: 0.5em 0;
+  padding: 0.75em 1em;
+  border-left: 4px solid #007474;
+  background: #eef6fa;
+  font-size: 1em;
+}

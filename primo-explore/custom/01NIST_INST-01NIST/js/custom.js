@@ -436,59 +436,172 @@ gtag('config', 'G-4KM704R98T');`;
   });
   // end Help
 
-/*          BEGIN Hide Non-Boulder NOAA Libraries from the Library facet section          */
+// /*          BEGIN Hide Non-Boulder NOAA Libraries from the Library facet section          */
 
-// Hide non-Boulder NOAA Libraries from locations in detailed records
-app.component('prmFullViewServiceContainerAfter', {
-    controller: ['$element', function($element) {
+// // Hide non-Boulder NOAA Libraries from locations in detailed records
+// app.component('prmFullViewServiceContainerAfter', {
+//     controller: ['$element', function($element) {
+//         var vm = this;
+
+//         vm.$onInit = function() {
+//             var hiddenNames = [
+//                 'NOAA Central Library',
+//                 'NOAA Seattle Library',
+//                 'SEFSC Miami Laboratory Library',
+//                 'Natl. Centers for Envir. Information Library',
+//                 'Betty Petersen Memorial Library',
+//                 'SWFSC La Jolla Laboratory Library',
+//                 'SEFSC Pascagoula Laboratory Library',
+//                 'Geophysical Fluid Dynamics Lab. Library',
+//                 'National Marine Mammal Laboratory Library',
+//                 'SEFSC Panama City Laboratory Library',
+//                 'Great Lakes Environmental Research Laboratory Library',
+//                 'SWFSC Santa Cruz Library'
+//             ];
+
+//             function hideTargetLocations() {
+//                 // Target all individual location list items
+//                 var locationItems = document.querySelectorAll('prm-alma-other-members md-list-item, prm-opac md-list-item, md-list-item.md-2-line');
+
+//                 locationItems.forEach(function(item) {
+//                     var text = item.innerText || '';
+
+//                     // Check if row contains a hidden name
+//                     var shouldHide = hiddenNames.some(function(name) {
+//                         return text.includes(name);
+//                     });
+
+//                     if (shouldHide) {
+//                         item.style.display = 'none';
+//                     }
+//                 });
+//             }
+//             // Run and observe DOM changes when the user clicks "NOAA Boulder Library" or toggles tabs
+//             hideTargetLocations();
+//             var observer = new MutationObserver(function() {
+//                 hideTargetLocations();
+//             });
+
+//             // Libraries to flag with a callout instead of hiding.
+//         var partnerLibraries = {
+//             'NOAA Boulder Library': 'This item may be requested at NIST Boulder Library. NOAA and NTIA staff can request through the following means....'
+//         };
+
+//             observer.observe(document.body, {
+//                 childList: true,
+//                 subtree: true
+//             });
+//         };
+//     }]
+// });
+// /*          END Hide Non-Boulder NOAA Libraries from the Library facet section          */
+
+
+
+    // BEGIN Hide Non-Boulder NIST Library/Add HTML Call out
+    app.component('prmFullViewServiceContainerAfter', {
+    bindings: { parentCtrl: '<' },
+    template: '<span></span>',
+    controller: ['$element', function ($element) {
         var vm = this;
+        var observer;
 
-        vm.$onInit = function() {
-            var hiddenNames = [
-                'NOAA Central Library',
-                'NOAA Seattle Library',
-                'SEFSC Miami Laboratory Library',
-                'Natl. Centers for Envir. Information Library',
-                'Betty Petersen Memorial Library',
-                'SWFSC La Jolla Laboratory Library',
-                'SEFSC Pascagoula Laboratory Library',
-                'Geophysical Fluid Dynamics Lab. Library',
-                'National Marine Mammal Laboratory Library',
-                'SEFSC Panama City Laboratory Library',
-                'Great Lakes Environmental Research Laboratory Library',
-                'SWFSC Santa Cruz Library'
-            ];
+        vm.$onInit = function () {
 
-            function hideTargetLocations() {
-                // Target all individual location list items
-                var locationItems = document.querySelectorAll('prm-alma-other-members md-list-item, prm-opac md-list-item, md-list-item.md-2-line');
+        // Libraries to hide entirely from the "How to Get It" list.
+        var hiddenNames = [
+            'NOAA Central Library',
+            'NOAA Seattle Library',
+            'SEFSC Miami Laboratory Library',
+            'Natl. Centers for Envir. Information Library',
+            'Betty Petersen Memorial Library',
+            'SWFSC La Jolla Laboratory Library',
+            'SEFSC Pascagoula Laboratory Library',
+            'Geophysical Fluid Dynamics Lab. Library',
+            'National Marine Mammal Laboratory Library',
+            'SEFSC Panama City Laboratory Library',
+            'Great Lakes Environmental Research Laboratory Library',
+            'SWFSC Santa Cruz Library'
+        ];
 
-                locationItems.forEach(function(item) {
-                    var text = item.innerText || '';
+        // Libraries to flag with a callout instead of hiding.
+        var partnerLibraries = {
+            'NOAA Boulder Library': 'This item may be requested at NOAA Boulder Library. NIST staff can <a href="https://library.noaa.gov/boulder-collections/noaa-collection">follow this guide to request it.</a>'
+        };
 
-                    // Check if row contains a hidden name
-                    var shouldHide = hiddenNames.some(function(name) {
-                        return text.includes(name);
-                    });
+        function processLocationItems() {
+            // Target the parent containers rather than the individual items
+            var locationContainers = document.querySelectorAll(
+            'prm-alma-other-members, prm-location-items, prm-opac'
+            );
 
-                    if (shouldHide) {
-                        item.style.display = 'none';
-                    }
-                });
+            locationContainers.forEach(function (container) {
+            // Skip items already processed, so re-entrant mutation events
+            // (including our own callout insertions) don't loop forever.
+            if (container.dataset.locationProcessed === 'true') {
+                return;
             }
-            // Run and observe DOM changes when the user clicks "NOAA Boulder Library" or toggles tabs
-            hideTargetLocations();
-            var observer = new MutationObserver(function() {
-                hideTargetLocations();
+
+            // Target the header element containing the library name
+            var titleNode = container.querySelector('h6.md-title, .tab-content-header');
+            var text = titleNode ? (titleNode.textContent || titleNode.innerText || '') : (container.textContent || container.innerText || '');
+
+            var shouldHide = hiddenNames.some(function (name) {
+                return text.includes(name);
             });
 
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
+            if (shouldHide) {
+                container.style.display = 'none';
+                container.dataset.locationProcessed = 'true';
+                return;
+            }
+
+            var matchedName = Object.keys(partnerLibraries).find(function (name) {
+                return text.includes(name);
             });
+
+            if (matchedName) {
+                var callout = document.createElement('div');
+                callout.className = 'partner-library-callout';
+                callout.innerHTML = '<strong>Holdings from ' + matchedName + '.</strong> ' +
+                partnerLibraries[matchedName];
+
+                // Insert the callout exactly after the header section
+                var headerElement = container.querySelector('.tab-content-header') || titleNode;
+                if (headerElement) {
+                    headerElement.insertAdjacentElement('afterend', callout);
+                } else {
+                    container.insertBefore(callout, container.firstChild);
+                }
+            }
+
+            container.dataset.locationProcessed = 'true';
+            });
+        }
+
+        // Run once for the current DOM, then keep watching for re-renders
+        // (tab switches, async availability loading, etc).
+        processLocationItems();
+        observer = new MutationObserver(function () {
+            processLocationItems();
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        };
+
+        // disconnect from observer. prevent memory leak
+        vm.$onDestroy = function () {
+            if (observer) {
+                observer.disconnect();
+            }
         };
     }]
-});
-/*          END Hide Non-Boulder NOAA Libraries from the Library facet section          */
+    }); // END Hide Non-Boulder NIST Library/Add HTML Call out
+
+
+
 
 })();
